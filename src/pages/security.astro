@@ -9,22 +9,34 @@ import { base } from '../config';
 >
   <section class="security-hero">
     <div class="container">
-      <div class="security-hero-grid">
-        <div class="security-hero-content">
-          <h1>Security & Compliance</h1>
-          <p class="lead">
-            Entitle is architected as a <strong>policy processor, not a data processor</strong>. 
-            We evaluate decisions—we never touch your customer data or business logic.
-          </p>
-          <div class="security-badges">
-            <span class="security-badge">🔒 SOC 2 Type II (Roadmap)</span>
-            <span class="security-badge">🛡️ GDPR Compliant by Design</span>
-            <span class="security-badge">🌐 Hard Multi-Tenancy</span>
-            <span class="security-badge">🔐 Tenant Isolation Guaranteed</span>
+      <div class="hero-content-centered">
+        <span class="badge badge-security">Security & Compliance</span>
+        <h1>Built on a Foundation of Security</h1>
+        <p class="lead">
+          Entitle is architected as a <strong>policy processor, not a data processor</strong>. 
+          We evaluate decisions—we never touch your customer data or business logic.
+        </p>
+        <div class="security-badges-grid">
+          <div class="security-badge-item">
+            <div class="badge-icon">🔒</div>
+            <span>SOC 2 Type II</span>
+            <small>(Roadmap)</small>
           </div>
-        </div>
-        <div class="security-hero-image">
-          <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800&h=600&fit=crop&q=80" alt="Security and protection" />
+          <div class="security-badge-item">
+            <div class="badge-icon">✓</div>
+            <span>GDPR Compliant</span>
+            <small>by Design</small>
+          </div>
+          <div class="security-badge-item">
+            <div class="badge-icon">🛡</div>
+            <span>Hard Multi-Tenancy</span>
+            <small>Guaranteed</small>
+          </div>
+          <div class="security-badge-item">
+            <div class="badge-icon">🔐</div>
+            <span>Tenant Isolation</span>
+            <small>Architectural</small>
+          </div>
         </div>
       </div>
     </div>
@@ -395,40 +407,96 @@ import { base } from '../config';
 
 <style>
   .security-hero {
-    padding: 4rem 0 3rem;
-    background: linear-gradient(180deg, #fef2f2 0%, #ffffff 100%);
+    padding: 5rem 0 4rem;
+    background: linear-gradient(135deg, #fef2f2 0%, #fef3f2 50%, #fff7ed 100%);
     border-bottom: 1px solid #e5e7eb;
   }
 
+  .hero-content-centered {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .badge {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+    color: white;
+    font-size: 0.875rem;
+    font-weight: 600;
+    border-radius: 20px;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .badge-security {
+    background: linear-gradient(135deg, #059669 0%, #047857 100%);
+  }
+
   .security-hero h1 {
-    font-size: 2.5rem;
-    font-weight: 700;
+    font-size: 3rem;
+    font-weight: 800;
     color: #111827;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
   }
 
   .security-hero .lead {
-    font-size: 1.125rem;
+    font-size: 1.25rem;
     color: #6b7280;
-    max-width: 700px;
     line-height: 1.7;
+    margin-bottom: 2.5rem;
   }
 
-  .security-badges {
+  .security-badges-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1rem;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .security-badge-item {
     display: flex;
-    gap: 0.75rem;
-    flex-wrap: wrap;
-    margin-top: 1.5rem;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1.5rem 1rem;
+    background: white;
+    border: 2px solid #e5e7eb;
+    border-radius: 12px;
+    transition: all 0.3s ease;
   }
 
-  .security-badge {
-    padding: 0.625rem 1rem;
-    background: white;
-    border: 1px solid #e5e7eb;
-    border-radius: 6px;
+  .security-badge-item:hover {
+    border-color: #059669;
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+  }
+
+  .badge-icon {
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+  }
+
+  .security-badge-item span {
+    font-weight: 600;
+    color: #111827;
     font-size: 0.9375rem;
-    font-weight: 500;
-    color: #374151;
+    text-align: center;
+  }
+
+  .security-badge-item small {
+    font-size: 0.8125rem;
+    color: #6b7280;
   }
 
   .architecture-note {

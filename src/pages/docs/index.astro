@@ -9,22 +9,30 @@ import { base } from '../../config';
 >
   <section class="docs-hero">
     <div class="container">
-      <div class="docs-hero-grid">
-        <div class="docs-hero-content">
-          <h1>Documentation</h1>
-          <p class="lead">
-            Complete guide to integrating Entitle's Policy Decision Platform into your B2B SaaS application. 
-            Built for engineering teams who value architectural discipline.
-          </p>
-          <div class="docs-quick-links">
-            <a href="#quickstart" class="quick-link">🚀 Quickstart</a>
-            <a href="#decision-api" class="quick-link">🔌 Decision API</a>
-            <a href="#sdk" class="quick-link">📦 SDK Usage</a>
-            <a href="#shadow-mode" class="quick-link">👥 Shadow Mode</a>
-          </div>
-        </div>
-        <div class="docs-hero-image">
-          <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=600&fit=crop&q=80" alt="Developer coding" />
+      <div class="hero-content-centered">
+        <span class="badge">Developer Documentation</span>
+        <h1>Get Started with Entitle</h1>
+        <p class="lead">
+          Complete guide to integrating Entitle's Policy Decision Platform into your B2B SaaS application. 
+          Built for engineering teams who value architectural discipline.
+        </p>
+        <div class="docs-quick-nav">
+          <a href="#quickstart" class="nav-card">
+            <div class="nav-card-icon">→</div>
+            <span>Quickstart</span>
+          </a>
+          <a href="#decision-api" class="nav-card">
+            <div class="nav-card-icon">⚡</div>
+            <span>Decision API</span>
+          </a>
+          <a href="#sdk" class="nav-card">
+            <div class="nav-card-icon">📚</div>
+            <span>SDK Usage</span>
+          </a>
+          <a href="#shadow-mode" class="nav-card">
+            <div class="nav-card-icon">🔄</div>
+            <span>Shadow Mode</span>
+          </a>
         </div>
       </div>
     </div>
@@ -493,49 +501,83 @@ DELETE /v1/policies/{id}`}</code></pre>
 
 <style>
   .docs-hero {
-    padding: 4rem 0 3rem;
-    background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+    padding: 5rem 0 4rem;
+    background: linear-gradient(135deg, #f8fafc 0%, #eff6ff 100%);
     border-bottom: 1px solid #e5e7eb;
   }
 
+  .hero-content-centered {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .badge {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+    color: white;
+    font-size: 0.875rem;
+    font-weight: 600;
+    border-radius: 20px;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
   .docs-hero h1 {
-    font-size: 2.5rem;
-    font-weight: 700;
+    font-size: 3rem;
+    font-weight: 800;
     color: #111827;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
   }
 
   .docs-hero .lead {
-    font-size: 1.125rem;
+    font-size: 1.25rem;
     color: #6b7280;
-    max-width: 700px;
     line-height: 1.7;
+    margin-bottom: 2.5rem;
   }
 
-  .docs-quick-links {
+  .docs-quick-nav {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .nav-card {
     display: flex;
+    flex-direction: column;
+    align-items: center;
     gap: 0.75rem;
-    flex-wrap: wrap;
-    margin-top: 1.5rem;
-  }
-
-  .quick-link {
-    padding: 0.625rem 1rem;
+    padding: 1.5rem 1rem;
     background: white;
-    border: 1px solid #e5e7eb;
-    border-radius: 6px;
+    border: 2px solid #e5e7eb;
+    border-radius: 12px;
     text-decoration: none;
     color: #374151;
-    font-weight: 500;
-    font-size: 0.9375rem;
-    transition: all 0.2s ease;
+    font-weight: 600;
+    transition: all 0.3s ease;
   }
 
-  .quick-link:hover {
+  .nav-card:hover {
     border-color: #2563eb;
-    color: #2563eb;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+  }
+
+  .nav-card-icon {
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
   }
 
   .core-question {
