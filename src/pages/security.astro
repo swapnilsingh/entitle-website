@@ -280,25 +280,31 @@ import { base } from '../config';
           All policy evaluation requests are logged with structured metadata for audit and debugging purposes.
         </p>
 
-        <h3>What's Logged</h3>
-        <ul>
-          <li>Timestamp (UTC)</li>
-          <li>Tenant identifier</li>
-          <li>Principal identifier (pseudonymous)</li>
-          <li>Capability requested</li>
-          <li>Decision outcome (allow/deny)</li>
-          <li>Policy version applied</li>
-          <li>Optional context metadata</li>
-        </ul>
+        <div class="content-columns">
+          <div class="content-box">
+            <h3>What's Logged</h3>
+            <ul>
+              <li>Timestamp (UTC)</li>
+              <li>Tenant identifier</li>
+              <li>Principal identifier (pseudonymous)</li>
+              <li>Capability requested</li>
+              <li>Decision outcome (allow/deny)</li>
+              <li>Policy version applied</li>
+              <li>Optional context metadata</li>
+            </ul>
+          </div>
+          <div class="content-box">
+            <h3>Audit Query API</h3>
+            <p class="roadmap-label">Roadmap</p>
+            <p>
+              v1.1+ will provide query APIs allowing tenants to retrieve their own decision logs for 
+              compliance reporting, security analysis, and debugging. Queries scoped to tenant—no 
+              cross-tenant visibility.
+            </p>
+          </div>
+        </div>
 
-        <h3>Audit Query API (Roadmap)</h3>
-        <p>
-          v1.1+ will provide query APIs allowing tenants to retrieve their own decision logs for 
-          compliance reporting, security analysis, and debugging. Queries scoped to tenant—no 
-          cross-tenant visibility.
-        </p>
-
-        <div class="highlight-box">
+        <div class="info-box">
           <strong>Retention Policy:</strong> Decision logs retained for 90 days, then automatically 
           purged. Extended retention available on request for compliance needs.
         </div>
@@ -308,29 +314,35 @@ import { base } from '../config';
       <div class="security-section">
         <h2>Operational Security Practices</h2>
         
-        <h3>Development & Deployment</h3>
-        <ul>
-          <li>All code changes reviewed before merge</li>
-          <li>Automated testing including security regression tests</li>
-          <li>Immutable infrastructure (no manual server changes)</li>
-          <li>Secrets managed via dedicated secret manager (never in code)</li>
-        </ul>
-
-        <h3>Monitoring & Incident Response</h3>
-        <ul>
-          <li>24/7 uptime monitoring and alerting</li>
-          <li>Automated anomaly detection for suspicious patterns</li>
-          <li>Incident response plan with defined escalation paths</li>
-          <li>Post-incident reviews for continuous improvement</li>
-        </ul>
-
-        <h3>Access Controls</h3>
-        <ul>
-          <li>Principle of least privilege for all team access</li>
-          <li>Multi-factor authentication required for all production access</li>
-          <li>Audit logging of all administrative actions</li>
-          <li>Regular access reviews and permission audits</li>
-        </ul>
+        <div class="operational-grid">
+          <div class="operational-card">
+            <h3>Development & Deployment</h3>
+            <ul>
+              <li>All code changes reviewed before merge</li>
+              <li>Automated testing including security regression tests</li>
+              <li>Immutable infrastructure (no manual server changes)</li>
+              <li>Secrets managed via dedicated secret manager (never in code)</li>
+            </ul>
+          </div>
+          <div class="operational-card">
+            <h3>Monitoring & Incident Response</h3>
+            <ul>
+              <li>24/7 uptime monitoring and alerting</li>
+              <li>Automated anomaly detection for suspicious patterns</li>
+              <li>Incident response plan with defined escalation paths</li>
+              <li>Post-incident reviews for continuous improvement</li>
+            </ul>
+          </div>
+          <div class="operational-card">
+            <h3>Access Controls</h3>
+            <ul>
+              <li>Principle of least privilege for all team access</li>
+              <li>Multi-factor authentication required for all production access</li>
+              <li>Audit logging of all administrative actions</li>
+              <li>Regular access reviews and permission audits</li>
+            </ul>
+          </div>
+        </div>
       </div>
 
       <!-- What Entitle is NOT -->
@@ -375,20 +387,26 @@ import { base } from '../config';
           but formal certifications come post-general availability.
         </p>
 
-        <h3>Current Status</h3>
-        <ul>
-          <li>GDPR-compliant by design (no PII processing)</li>
-          <li>Security best practices implemented (encryption, isolation, audit logs)</li>
-          <li>Incident response plan documented</li>
-          <li>Data retention policies defined</li>
-        </ul>
-
-        <h3>Certification Roadmap (Post-MVP)</h3>
-        <ul>
-          <li><strong>SOC 2 Type II:</strong> Targeted for 6-9 months post-GA</li>
-          <li><strong>ISO 27001:</strong> Under evaluation based on customer demand</li>
-          <li><strong>HIPAA BAA:</strong> Not planned for v1.0 (healthcare use cases deferred)</li>
-        </ul>
+        <div class="compliance-grid">
+          <div class="compliance-card">
+            <h3>Current Status</h3>
+            <ul>
+              <li>GDPR-compliant by design (no PII processing)</li>
+              <li>Security best practices implemented (encryption, isolation, audit logs)</li>
+              <li>Incident response plan documented</li>
+              <li>Data retention policies defined</li>
+            </ul>
+          </div>
+          <div class="compliance-card">
+            <h3>Certification Roadmap</h3>
+            <p class="roadmap-label">Post-MVP</p>
+            <ul>
+              <li><strong>SOC 2 Type II:</strong> Targeted for 6-9 months post-GA</li>
+              <li><strong>ISO 27001:</strong> Under evaluation based on customer demand</li>
+              <li><strong>HIPAA BAA:</strong> Not planned for v1.0 (healthcare use cases deferred)</li>
+            </ul>
+          </div>
+        </div>
 
         <div class="compliance-note">
           <p>
@@ -1004,6 +1022,121 @@ import { base } from '../config';
     color: #991b1b;
   }
 
+  .content-columns {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+
+  .content-box {
+    background: white;
+    border: 2px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 2rem;
+  }
+
+  .content-box h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #111827;
+    margin: 0 0 1rem 0;
+    text-align: left;
+  }
+
+  .content-box ul {
+    margin: 0;
+    padding-left: 1.5rem;
+  }
+
+  .content-box p {
+    text-align: left;
+    margin-bottom: 1rem;
+  }
+
+  .roadmap-label {
+    display: inline-block;
+    background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+    color: #92400e;
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.75rem;
+  }
+
+  .operational-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+
+  .operational-card {
+    background: white;
+    border: 2px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 2rem;
+    transition: all 0.3s ease;
+  }
+
+  .operational-card:hover {
+    border-color: #2563eb;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  }
+
+  .operational-card h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #111827;
+    margin: 0 0 1rem 0;
+    text-align: left;
+  }
+
+  .operational-card ul {
+    margin: 0;
+    padding-left: 1.5rem;
+  }
+
+  .operational-card li {
+    color: #6b7280;
+    line-height: 1.7;
+  }
+
+  .compliance-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+
+  .compliance-card {
+    background: white;
+    border: 2px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 2rem;
+  }
+
+  .compliance-card h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #111827;
+    margin: 0 0 1rem 0;
+    text-align: left;
+  }
+
+  .compliance-card ul {
+    margin: 0;
+    padding-left: 1.5rem;
+  }
+
+  .compliance-card li {
+    color: #6b7280;
+    line-height: 1.7;
+  }
+
   @media (max-width: 768px) {
     .security-hero {
       padding: 3rem 0 2rem;
@@ -1017,16 +1150,12 @@ import { base } from '../config';
       font-size: 1.75rem;
     }
 
-    .features-grid {
-      grid-template-columns: 1fr;
-      gap: 1.5rem;
-    }
-
-    .data-handling-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .boundaries-grid {
+    .features-grid,
+    .data-handling-grid,
+    .boundaries-grid,
+    .content-columns,
+    .operational-grid,
+    .compliance-grid {
       grid-template-columns: 1fr;
     }
 
