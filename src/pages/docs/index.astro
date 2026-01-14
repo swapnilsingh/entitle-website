@@ -1,6 +1,5 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-const base = import.meta.env.BASE_URL;
 ---
 
 <Layout 
@@ -473,17 +472,17 @@ DELETE /v1/policies/{id}`}</code></pre>
           <div class="next-step-card">
             <h3>Request Alpha Access</h3>
             <p>Join B2B SaaS teams testing Entitle in production-like conditions.</p>
-            <a href={`${base}alpha`} class="btn-link">Request Access →</a>
+            <a href="/alpha" class="btn-link">Request Access →</a>
           </div>
           <div class="next-step-card">
             <h3>Review Security</h3>
             <p>Understand our data handling, tenant isolation, and compliance posture.</p>
-            <a href={`${base}security`} class="btn-link">Security Docs →</a>
+            <a href="/security" class="btn-link">Security Docs →</a>
           </div>
           <div class="next-step-card">
             <h3>Explore the Platform</h3>
             <p>Deep dive into capabilities, architecture, and design principles.</p>
-            <a href={`${base}product`} class="btn-link">View Product →</a>
+            <a href="/product" class="btn-link">View Product →</a>
           </div>
         </div>
       </div>
