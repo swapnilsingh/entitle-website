@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { base } from '../config';
 ---
 
 <Layout 
@@ -384,8 +385,8 @@ import Layout from '../layouts/Layout.astro';
           questions, we'll answer them directly during your alpha evaluation.
         </p>
         <div class="cta-buttons">
-          <a href="/alpha" class="btn-primary">Request Alpha Access</a>
-          <a href="/docs" class="btn-secondary">View Documentation</a>
+          <a href={`${base}/alpha`} class="btn-primary">Request Alpha Access</a>
+          <a href={`${base}/docs`} class="btn-secondary">View Documentation</a>
         </div>
       </div>
     </div>
