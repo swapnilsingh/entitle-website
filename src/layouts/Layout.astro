@@ -86,6 +86,36 @@ const { title, description = 'Entitle - Externalize Entitlement Logic for Your S
     font-size: 16px;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    position: relative;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+      radial-gradient(at 20% 30%, rgba(59, 130, 246, 0.08) 0px, transparent 50%),
+      radial-gradient(at 80% 60%, rgba(139, 92, 246, 0.08) 0px, transparent 50%),
+      radial-gradient(at 50% 90%, rgba(16, 185, 129, 0.06) 0px, transparent 50%);
+    background-size: 100% 100%;
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239C92AC' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    opacity: 0.5;
+    pointer-events: none;
+    z-index: -1;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -149,14 +179,51 @@ const { title, description = 'Entitle - Externalize Entitlement Logic for Your S
 
   .why-entitle {
     background: var(--color-bg);
+    position: relative;
+  }
+
+  .why-entitle::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent 0%, rgba(59, 130, 246, 0.02) 100%);
+    pointer-events: none;
   }
 
   .how-it-works {
-    background: var(--color-bg-secondary);
+    background: linear-gradient(135deg, #fafcff 0%, #f8fafc 100%);
+    position: relative;
+  }
+
+  .how-it-works::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%233b82f6' fill-opacity='0.02' fill-rule='evenodd'/%3E%3C/svg%3E");
+    opacity: 0.4;
+    pointer-events: none;
   }
 
   .trust {
     background: var(--color-bg);
+    position: relative;
+  }
+
+  .trust::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background: linear-gradient(180deg, transparent 0%, rgba(59, 130, 246, 0.03) 100%);
+    pointer-events: none;
   }
 
   .what-not {
@@ -272,13 +339,25 @@ const { title, description = 'Entitle - Externalize Entitlement Logic for Your S
   .hero::before {
     content: '';
     position: absolute;
-    top: 0;
+    top: -50%;
     left: 50%;
     transform: translateX(-50%);
-    width: 1400px;
-    height: 1400px;
-    background: radial-gradient(circle, rgba(59, 130, 246, 0.08) 0%, transparent 70%);
+    width: 150%;
+    height: 150%;
+    background-image: 
+      radial-gradient(circle at 30% 20%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
+      radial-gradient(circle at 70% 60%, rgba(139, 92, 246, 0.12) 0%, transparent 50%);
     pointer-events: none;
+    animation: heroGradient 15s ease-in-out infinite;
+  }
+
+  @keyframes heroGradient {
+    0%, 100% {
+      transform: translateX(-50%) translateY(0) scale(1);
+    }
+    50% {
+      transform: translateX(-50%) translateY(-5%) scale(1.05);
+    }
   }
 
   .hero .container {
@@ -548,7 +627,21 @@ const { title, description = 'Entitle - Externalize Entitlement Logic for Your S
   }
 
   .use-cases {
-    background: var(--color-bg-secondary);
+    background: linear-gradient(180deg, #fafcff 0%, #ffffff 100%);
+    position: relative;
+  }
+
+  .use-cases::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+      radial-gradient(circle at 10% 20%, rgba(59, 130, 246, 0.03) 0%, transparent 50%),
+      radial-gradient(circle at 90% 80%, rgba(139, 92, 246, 0.03) 0%, transparent 50%);
+    pointer-events: none;
   }
 
   .use-case-grid {
