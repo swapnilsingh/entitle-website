@@ -5,6 +5,7 @@ interface Props {
 }
 
 const { title, description = 'Entitle - Externalize Entitlement Logic for Your SaaS' } = Astro.props;
+const base = import.meta.env.BASE_URL;
 ---
 
 <!doctype html>
@@ -23,12 +24,12 @@ const { title, description = 'Entitle - Externalize Entitlement Logic for Your S
   <body>
     <nav>
       <div class="container">
-        <a href="/" class="logo">Entitle</a>
+        <a href={base} class="logo">Entitle</a>
         <ul>
-          <li><a href="/product">Product</a></li>
-          <li><a href="/docs">Docs</a></li>
-          <li><a href="/security">Security</a></li>
-          <li><a href="/alpha" class="cta">Request Alpha Access</a></li>
+          <li><a href={`${base}product`}>Product</a></li>
+          <li><a href={`${base}docs`}>Docs</a></li>
+          <li><a href={`${base}security`}>Security</a></li>
+          <li><a href={`${base}alpha`} class="cta">Request Alpha Access</a></li>
         </ul>
       </div>
     </nav>

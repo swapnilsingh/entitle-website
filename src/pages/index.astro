@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+const base = import.meta.env.BASE_URL;
 ---
 
 <Layout title="Entitle - Externalize Entitlement Logic for Your SaaS">
@@ -13,7 +14,7 @@ import Layout from '../layouts/Layout.astro';
           from your codebase. We evaluate <em>whether</em> access is allowed—you enforce <em>what happens next</em>.
         </p>
         <div class="cta-buttons">
-          <a href="/alpha" class="btn btn-primary">Request Alpha Access</a>
+          <a href={`${base}alpha`} class="btn btn-primary">Request Alpha Access</a>
           <a href="#how-it-works" class="btn btn-secondary">See How It Works</a>
         </div>
       </div>
@@ -35,7 +36,7 @@ import Layout from '../layouts/Layout.astro';
           architectural boundaries.
         </p>
         <p style="margin-top: 1rem;">
-          <a href="/product" class="product-link">Explore the Full Platform →</a>
+          <a href={`${base}product`} class="product-link">Explore the Full Platform →</a>
         </p>
       </div>
       <div class="features">
@@ -314,7 +315,7 @@ import Layout from '../layouts/Layout.astro';
         </div>
       </div>
       <p class="security-link">
-        <a href="/security">Read our full security documentation →</a>
+        <a href={`${base}security`}>Read our full security documentation →</a>
       </p>
     </div>
   </section>
@@ -328,9 +329,9 @@ import Layout from '../layouts/Layout.astro';
         architectural discipline and production reliability.
       </p>
       <div class="cta-buttons">
-        <a href="/alpha" class="btn btn-primary">Request Alpha Access</a>
-        <a href="/product" class="btn btn-secondary-light">View Product Details</a>
-        <a href="/docs" class="btn btn-secondary-light">Read Documentation</a>
+        <a href={`${base}alpha`} class="btn btn-primary">Request Alpha Access</a>
+        <a href={`${base}product`} class="btn btn-secondary-light">View Product Details</a>
+        <a href={`${base}docs`} class="btn btn-secondary-light">Read Documentation</a>
       </div>
     </div>
   </section>

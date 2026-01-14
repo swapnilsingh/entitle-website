@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+const base = import.meta.env.BASE_URL;
 ---
 
 <Layout 
@@ -17,8 +18,8 @@ import Layout from '../layouts/Layout.astro';
           capability access is allowed—you enforce <strong>what happens next</strong>.
         </p>
         <div class="cta-buttons">
-          <a href="/alpha" class="btn btn-primary">Request Alpha Access</a>
-          <a href="/docs" class="btn btn-secondary">Read Documentation</a>
+          <a href={`${base}alpha`} class="btn btn-primary">Request Alpha Access</a>
+          <a href={`${base}docs`} class="btn btn-secondary">Read Documentation</a>
         </div>
       </div>
     </div>
@@ -552,8 +553,8 @@ import Layout from '../layouts/Layout.astro';
         architectural discipline and production reliability.
       </p>
       <div class="cta-buttons">
-        <a href="/alpha" class="btn btn-primary">Request Alpha Access</a>
-        <a href="/docs" class="btn btn-secondary-light">Read Documentation</a>
+        <a href={`${base}alpha`} class="btn btn-primary">Request Alpha Access</a>
+        <a href={`${base}docs`} class="btn btn-secondary-light">Read Documentation</a>
       </div>
     </div>
   </section>
