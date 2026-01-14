@@ -1,0 +1,382 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout 
+  title="Documentation - Entitle" 
+  description="Get started with Entitle's policy decision platform"
+>
+  <section class="docs-hero">
+    <div class="container">
+      <h1>Documentation</h1>
+      <p class="lead">
+        Learn how to integrate Entitle's policy decision platform into your B2B SaaS application.
+      </p>
+    </div>
+  </section>
+
+  <section class="docs-content">
+    <div class="container">
+      <!-- Quickstart Overview -->
+      <div class="doc-section">
+        <h2>Quickstart Overview</h2>
+        <p>
+          Entitle provides a decision API that evaluates whether a principal (user, tenant, or organization) 
+          can access a specific capability. Your application calls Entitle at runtime, receives an 
+          allow/deny decision, and enforces that decision locally.
+        </p>
+        <div class="highlight-box">
+          <strong>Key Concept:</strong> Entitle evaluates decisions only. Your application is responsible 
+          for enforcing those decisions in your business logic.
+        </div>
+      </div>
+
+      <!-- Decision API -->
+      <div class="doc-section">
+        <h2>Decision API</h2>
+        <p>
+          The Decision API is a REST endpoint that accepts a principal identifier and a capability identifier, 
+          then returns a deterministic allow or deny decision based on your configured policies.
+        </p>
+        
+        <h3>Endpoint</h3>
+        <pre><code>POST https://api.entitle.dev/v1/decision</code></pre>
+
+        <h3>Request Body</h3>
+        <pre><code>{`{
+  "principal": "tenant_abc123",
+  "capability": "feature_advanced_analytics",
+  "context": {
+    "environment": "production"
+  }
+}`}</code></pre>
+
+        <h3>Response</h3>
+        <pre><code>{`{
+  "decision": "allow",
+  "reason": "policy_match",
+  "policyId": "policy_xyz"
+}`}</code></pre>
+
+        <p class="note">
+          <strong>Note:</strong> The context object is optional and can include any additional 
+          metadata needed for policy evaluation.
+        </p>
+      </div>
+
+      <!-- SDK Usage -->
+      <div class="doc-section">
+        <h2>SDK Usage (Node.js)</h2>
+        <p>
+          The Entitle Node.js SDK provides a simple interface for calling the Decision API from your application.
+        </p>
+
+        <h3>Installation</h3>
+        <pre><code>npm install @entitle/node-sdk</code></pre>
+
+        <h3>Basic Usage</h3>
+        <pre><code>{`import { EntitleClient } from '@entitle/node-sdk';
+
+const client = new EntitleClient({
+  apiKey: process.env.ENTITLE_API_KEY,
+});
+
+// Check if tenant can access a capability
+const decision = await client.evaluate({
+  principal: 'tenant_abc123',
+  capability: 'feature_advanced_analytics',
+});
+
+if (decision.allowed) {
+  // Grant access to the feature
+  console.log('Access granted');
+} else {
+  // Deny access
+  console.log('Access denied');
+}`}</code></pre>
+
+        <h3>Express.js Middleware Example</h3>
+        <pre><code>{`import { EntitleClient } from '@entitle/node-sdk';
+
+const client = new EntitleClient({
+  apiKey: process.env.ENTITLE_API_KEY,
+});
+
+// Middleware to check capability access
+const requireCapability = (capability) => {
+  return async (req, res, next) => {
+    const tenantId = req.user.tenantId;
+    
+    const decision = await client.evaluate({
+      principal: tenantId,
+      capability: capability,
+    });
+
+    if (decision.allowed) {
+      next();
+    } else {
+      res.status(403).json({ 
+        error: 'Access denied',
+        reason: decision.reason 
+      });
+    }
+  };
+};
+
+// Use in routes
+app.get('/api/analytics', 
+  requireCapability('feature_advanced_analytics'),
+  (req, res) => {
+    // Handler code
+  }
+);`}</code></pre>
+      </div>
+
+      <!-- Shadow Mode -->
+      <div class="doc-section">
+        <h2>Shadow Mode</h2>
+        <p>
+          Shadow mode allows you to test Entitle's policy decisions without affecting your production 
+          traffic. In shadow mode, the SDK calls Entitle but always returns a default decision while 
+          logging what the real decision would have been.
+        </p>
+
+        <h3>Enable Shadow Mode</h3>
+        <pre><code>{`const client = new EntitleClient({
+  apiKey: process.env.ENTITLE_API_KEY,
+  shadowMode: true,
+  shadowDefault: 'allow', // or 'deny'
+});
+
+const decision = await client.evaluate({
+  principal: 'tenant_abc123',
+  capability: 'feature_advanced_analytics',
+});
+
+// In shadow mode:
+// - decision.allowed will always match shadowDefault
+// - decision.shadowActual will contain what the real decision would be
+// - All evaluations are logged for analysis
+
+console.log('Enforced:', decision.allowed);
+console.log('Would have been:', decision.shadowActual);`}</code></pre>
+
+        <div class="highlight-box">
+          <strong>Best Practice:</strong> Start with shadow mode in production to verify policy 
+          behavior before fully migrating to Entitle.
+        </div>
+      </div>
+
+      <!-- Enforcement Reminder -->
+      <div class="doc-section enforcement-reminder">
+        <h2>Enforcement Responsibility</h2>
+        <p>
+          <strong>Critical:</strong> Entitle evaluates policy decisions. Your application must 
+          enforce those decisions.
+        </p>
+        <ul>
+          <li>Entitle returns allow/deny — your code must respect that decision</li>
+          <li>Never bypass Entitle's decision in production code</li>
+          <li>Implement proper error handling if the API is unreachable</li>
+          <li>Consider caching strategies for high-traffic scenarios</li>
+        </ul>
+      </div>
+
+      <!-- Next Steps -->
+      <div class="doc-section">
+        <h2>Next Steps</h2>
+        <ul class="next-steps">
+          <li><a href="/alpha">Request alpha access</a> to start building with Entitle</li>
+          <li><a href="/security">Review security practices</a> and data handling</li>
+          <li>Join our developer community (coming soon)</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .docs-hero {
+    padding: 4rem 0 3rem;
+    border-bottom: 1px solid #e5e7eb;
+  }
+
+  .docs-hero h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 1rem;
+  }
+
+  .docs-hero .lead {
+    font-size: 1.125rem;
+    color: #6b7280;
+    max-width: 700px;
+    line-height: 1.7;
+  }
+
+  .docs-content {
+    padding: 4rem 0 5rem;
+  }
+
+  .doc-section {
+    margin-bottom: 4rem;
+  }
+
+  .doc-section:last-child {
+    margin-bottom: 0;
+  }
+
+  .doc-section h2 {
+    font-size: 1.875rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #e5e7eb;
+  }
+
+  .doc-section h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #111827;
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .doc-section p {
+    color: #374151;
+    line-height: 1.7;
+    margin-bottom: 1.25rem;
+  }
+
+  .doc-section ul {
+    color: #374151;
+    line-height: 1.7;
+    margin-left: 1.5rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .doc-section li {
+    margin-bottom: 0.5rem;
+  }
+
+  pre {
+    background: #1f2937;
+    color: #f9fafb;
+    padding: 1.25rem;
+    border-radius: 6px;
+    overflow-x: auto;
+    margin: 1.25rem 0;
+    font-size: 0.9375rem;
+    line-height: 1.6;
+  }
+
+  code {
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  }
+
+  .highlight-box {
+    background: #eff6ff;
+    border-left: 4px solid #2563eb;
+    padding: 1.25rem;
+    margin: 1.5rem 0;
+    border-radius: 4px;
+  }
+
+  .highlight-box strong {
+    color: #1e40af;
+    font-weight: 600;
+  }
+
+  .note {
+    background: #fef3c7;
+    border-left: 4px solid #f59e0b;
+    padding: 1rem;
+    margin: 1.5rem 0;
+    border-radius: 4px;
+    font-size: 0.9375rem;
+  }
+
+  .note strong {
+    color: #92400e;
+  }
+
+  .enforcement-reminder {
+    background: #fef2f2;
+    border: 2px solid #fca5a5;
+    border-radius: 8px;
+    padding: 2rem;
+  }
+
+  .enforcement-reminder h2 {
+    border-bottom: none;
+    color: #991b1b;
+  }
+
+  .enforcement-reminder p {
+    color: #7f1d1d;
+  }
+
+  .enforcement-reminder strong {
+    color: #991b1b;
+  }
+
+  .enforcement-reminder ul {
+    color: #7f1d1d;
+  }
+
+  .next-steps {
+    list-style: none;
+    padding-left: 0;
+  }
+
+  .next-steps li {
+    padding: 0.75rem 0;
+    padding-left: 2rem;
+    position: relative;
+  }
+
+  .next-steps li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: #2563eb;
+    font-weight: bold;
+    font-size: 1.25rem;
+  }
+
+  .next-steps a {
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .next-steps a:hover {
+    color: #1d4ed8;
+    text-decoration: underline;
+  }
+
+  @media (max-width: 768px) {
+    .docs-hero {
+      padding: 3rem 0 2rem;
+    }
+
+    .docs-hero h1 {
+      font-size: 2rem;
+    }
+
+    .doc-section h2 {
+      font-size: 1.5rem;
+    }
+
+    .doc-section h3 {
+      font-size: 1.125rem;
+    }
+
+    pre {
+      font-size: 0.875rem;
+      padding: 1rem;
+    }
+  }
+</style>

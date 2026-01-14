@@ -1,0 +1,514 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout 
+  title="Request Alpha Access - Entitle" 
+  description="Join the Entitle alpha program and gain early access to our policy decision platform"
+>
+  <section class="alpha-hero">
+    <div class="container">
+      <h1>Request Alpha Access</h1>
+      <p class="lead">
+        Join B2B SaaS teams that are externalizing commercial access policy while maintaining 
+        architectural discipline. Built for engineering teams who value DDD, clear boundaries, 
+        and production reliability.
+      </p>
+    </div>
+  </section>
+
+  <section class="alpha-content">
+    <div class="container">
+      <!-- Progressive Adoption Stages -->
+      <div class="adoption-stages">
+        <h2>Progressive Adoption Model</h2>
+        <p class="stage-intro">
+          Entitle is designed for <strong>incremental, low-risk adoption</strong>. 
+          No big-bang migration. No forced lock-in.
+        </p>
+        <div class="stages-grid">
+          <div class="stage">
+            <div class="stage-badge">Stage 1</div>
+            <h3>Shadow Mode</h3>
+            <p>
+              Integrate the SDK and call Entitle in parallel with your existing logic. 
+              Entitle evaluates policies, but you <strong>don't enforce decisions yet</strong>. 
+              Build trust with zero production risk.
+            </p>
+            <ul>
+              <li>Decision comparison reports</li>
+              <li>Sandbox environment access</li>
+              <li>Sample policies & SDK support</li>
+            </ul>
+          </div>
+          <div class="stage">
+            <div class="stage-badge">Stage 2</div>
+            <h3>Partial Enforcement</h3>
+            <p>
+              Enforce Entitle decisions for non-critical capabilities. 
+              Keep local overrides enabled. Demonstrate value with controlled blast radius.
+            </p>
+            <ul>
+              <li>Production credentials</li>
+              <li>Snapshot configuration</li>
+              <li>Configurable failure modes</li>
+            </ul>
+          </div>
+          <div class="stage">
+            <div class="stage-badge">Stage 3</div>
+            <h3>Full Enforcement</h3>
+            <p>
+              Entitle becomes your authoritative Policy Decision Point. 
+              All commercial access decisions routed through Entitle.
+            </p>
+            <ul>
+              <li>SLA agreement</li>
+              <li>Audit & compliance reports</li>
+              <li>Usage dashboards</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="content-grid">
+        <!-- Left Column: Information -->
+        <div class="info-column">
+          <div class="info-section">
+            <h2>Who Alpha is For</h2>
+            <ul>
+              <li>B2B SaaS (Series A–C) with plan or contract-based access</li>
+              <li>Engineering-led teams tired of entitlement logic sprawl</li>
+              <li>Architects looking for DDD-aligned policy decision platforms</li>
+              <li>Teams that value incremental adoption and architectural safety</li>
+            </ul>
+            <p class="note">
+              <strong>Not for:</strong> Consumer mobile apps, early MVP-only startups, 
+              or teams seeking feature flag experimentation tools.
+            </p>
+          </div>
+
+          <div class="info-section">
+            <h2>What Alpha Includes</h2>
+            <ul>
+              <li><strong>Decision API:</strong> Low-latency policy evaluation (P95 &lt; 100ms target)</li>
+              <li><strong>Node.js SDK:</strong> Typed SDK with caching, retries, and shadow mode</li>
+              <li><strong>Policy Management:</strong> Declarative policy definition and versioning</li>
+              <li><strong>Structured Logging:</strong> Decision traces for debugging and trust</li>
+              <li><strong>Direct Feedback:</strong> Shape the product with your architectural input</li>
+            </ul>
+          </div>
+
+          <div class="info-section">
+            <h2>What Alpha is NOT</h2>
+            <ul class="not-list">
+              <li>Not a feature flag or A/B testing service</li>
+              <li>Not a billing, payment, or pricing system</li>
+              <li>Not a workflow orchestrator or business rule engine</li>
+              <li>Not an enforcement engine (enforcement stays in your code)</li>
+              <li>No admin web console yet (API-first for now)</li>
+              <li>No production SLA guarantees during alpha</li>
+            </ul>
+            <p class="note">
+              Alpha is for validating architecture, trust, and value — not feature completeness.
+            </p>
+          </div>
+        </div>
+
+        <!-- Right Column: Form -->
+        <div class="form-column">
+          <div class="form-container">
+            <h2>Request Access</h2>
+            <form class="alpha-form">
+              <div class="form-group">
+                <label for="name">Name</label>
+                <input 
+                  type="text" 
+                  id="name" 
+                  name="name" 
+                  required 
+                  placeholder="Your full name"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="email">Work Email</label>
+                <input 
+                  type="email" 
+                  id="email" 
+                  name="email" 
+                  required 
+                  placeholder="you@company.com"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="company">Company</label>
+                <input 
+                  type="text" 
+                  id="company" 
+                  name="company" 
+                  required 
+                  placeholder="Company name"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="usecase">Use Case Description</label>
+                <textarea 
+                  id="usecase" 
+                  name="usecase" 
+                  rows="5" 
+                  required 
+                  placeholder="Describe your entitlement management challenges and how you envision using Entitle..."
+                ></textarea>
+              </div>
+
+              <button type="submit" class="btn-submit">Submit Request</button>
+              
+              <p class="form-note">
+                We review all requests and respond within 48 hours. 
+                Alpha access is currently invite-only.
+              </p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .alpha-hero {
+    padding: 4rem 0 3rem;
+    text-align: center;
+    border-bottom: 1px solid #e5e7eb;
+  }
+
+  .alpha-hero h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+  }
+
+  .alpha-hero .lead {
+    font-size: 1.125rem;
+    color: #6b7280;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+
+  .alpha-content {
+    padding: 4rem 0 5rem;
+  }
+
+  /* Progressive Adoption Stages */
+  .adoption-stages {
+    margin-bottom: 5rem;
+    text-align: center;
+  }
+
+  .adoption-stages h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 1rem;
+  }
+
+  .stage-intro {
+    font-size: 1.125rem;
+    color: #6b7280;
+    max-width: 700px;
+    margin: 0 auto 3rem;
+    line-height: 1.7;
+  }
+
+  .stage-intro strong {
+    color: #374151;
+    font-weight: 600;
+  }
+
+  .stages-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    text-align: left;
+  }
+
+  .stage {
+    background: white;
+    border: 2px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 2rem;
+    transition: border-color 0.2s;
+  }
+
+  .stage:hover {
+    border-color: #2563eb;
+  }
+
+  .stage-badge {
+    display: inline-block;
+    background: #eff6ff;
+    color: #2563eb;
+    padding: 0.375rem 0.75rem;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+
+  .stage h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #111827;
+    margin-bottom: 0.75rem;
+  }
+
+  .stage p {
+    color: #6b7280;
+    line-height: 1.7;
+    margin-bottom: 1rem;
+  }
+
+  .stage p strong {
+    color: #374151;
+    font-weight: 600;
+  }
+
+  .stage ul {
+    list-style: none;
+    padding-left: 0;
+  }
+
+  .stage li {
+    padding: 0.375rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+    color: #6b7280;
+    font-size: 0.9375rem;
+  }
+
+  .stage li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #10b981;
+    font-weight: bold;
+  }
+
+  .content-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  /* Info Column */
+  .info-column {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+
+  .info-section h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #111827;
+    margin-bottom: 1rem;
+  }
+
+  .info-section ul {
+    list-style: none;
+    padding-left: 0;
+  }
+
+  .info-section li {
+    padding: 0.625rem 0;
+    padding-left: 1.75rem;
+    position: relative;
+    color: #374151;
+    line-height: 1.6;
+  }
+
+  .info-section li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: #2563eb;
+    font-weight: bold;
+  }
+
+  .info-section .not-list li::before {
+    content: "×";
+    color: #6b7280;
+  }
+
+  .info-section strong {
+    color: #111827;
+    font-weight: 600;
+  }
+
+  .info-section .note {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    background: #f9fafb;
+    border-left: 3px solid #2563eb;
+    border-radius: 4px;
+    font-size: 0.9375rem;
+    color: #374151;
+  }
+
+  .info-section .note strong {
+    color: #111827;
+  }
+
+  /* Form Column */
+  .form-column {
+    position: sticky;
+    top: 6rem;
+  }
+
+  .form-container {
+    background: #f9fafb;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 2rem;
+  }
+
+  .form-container h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #111827;
+    margin-bottom: 1.5rem;
+  }
+
+  .alpha-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .form-group label {
+    font-weight: 600;
+    font-size: 0.875rem;
+    color: #374151;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    padding: 0.75rem;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: border-color 0.15s;
+    background: white;
+  }
+
+  .form-group input:focus,
+  .form-group textarea:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+  }
+
+  .form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+  }
+
+  .btn-submit {
+    background: #2563eb;
+    color: white;
+    padding: 0.875rem 1.5rem;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.15s;
+    margin-top: 0.5rem;
+  }
+
+  .btn-submit:hover {
+    background: #1d4ed8;
+  }
+
+  .form-note {
+    font-size: 0.875rem;
+    color: #6b7280;
+    text-align: center;
+    margin-top: 0.5rem;
+  }
+
+  /* Responsive */
+  @media (max-width: 968px) {
+    .content-grid {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+
+    .form-column {
+      position: static;
+    }
+
+    .adoption-stages {
+      margin-bottom: 4rem;
+    }
+
+    .stages-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .alpha-hero h1 {
+      font-size: 2rem;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .alpha-hero {
+      padding: 3rem 0 2rem;
+    }
+
+    .alpha-hero h1 {
+      font-size: 1.75rem;
+    }
+
+    .alpha-hero .lead {
+      font-size: 1rem;
+    }
+
+    .alpha-content {
+      padding: 3rem 0 4rem;
+    }
+
+    .form-container {
+      padding: 1.5rem;
+    }
+
+    .adoption-stages h2 {
+      font-size: 1.625rem;
+    }
+  }
+</style>
+
+<script>
+  // Form submission handler (placeholder)
+  const form = document.querySelector('.alpha-form');
+  if (form) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      alert('Form submission is not yet configured. This is an alpha placeholder.');
+      // In production, you would send this to your backend or a service like Formspree
+    });
+  }
+</script>

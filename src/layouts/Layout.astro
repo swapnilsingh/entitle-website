@@ -1,0 +1,156 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = 'Entitle - Externalize Entitlement Logic for Your SaaS' } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <nav>
+      <div class="container">
+        <a href="/" class="logo">Entitle</a>
+        <ul>
+          <li><a href="/">Product</a></li>
+          <li><a href="/docs">Docs</a></li>
+          <li><a href="/security">Security</a></li>
+          <li><a href="/alpha" class="cta">Request Alpha Access</a></li>
+        </ul>
+      </div>
+    </nav>
+    <main>
+      <slot />
+    </main>
+    <footer>
+      <div class="container">
+        <p>&copy; {new Date().getFullYear()} Entitle. Policy decisions for modern SaaS.</p>
+      </div>
+    </footer>
+  </body>
+</html>
+
+<style>
+  :root {
+    --color-primary: #2563eb;
+    --color-text: #1f2937;
+    --color-text-secondary: #6b7280;
+    --color-bg: #ffffff;
+    --color-border: #e5e7eb;
+    --color-muted: #f9fafb;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Inter', sans-serif;
+    line-height: 1.6;
+    color: var(--color-text);
+    background: var(--color-bg);
+    font-size: 16px;
+  }
+
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  nav {
+    background: white;
+    border-bottom: 1px solid var(--color-border);
+    padding: 1.25rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  nav .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  nav .logo {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color-text);
+    text-decoration: none;
+    letter-spacing: -0.02em;
+  }
+
+  nav ul {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    align-items: center;
+  }
+
+  nav a {
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    transition: color 0.15s;
+    font-size: 0.9375rem;
+    font-weight: 500;
+  }
+
+  nav a:hover {
+    color: var(--color-text);
+  }
+
+  nav a.cta {
+    background: var(--color-primary);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-weight: 600;
+  }
+
+  nav a.cta:hover {
+    background: #1d4ed8;
+    color: white;
+  }
+
+  main {
+    min-height: calc(100vh - 200px);
+  }
+
+  footer {
+    background: var(--color-muted);
+    border-top: 1px solid var(--color-border);
+    padding: 2.5rem 0;
+    margin-top: 6rem;
+    text-align: center;
+  }
+
+  footer p {
+    color: var(--color-text-secondary);
+    font-size: 0.875rem;
+  }
+
+  @media (max-width: 768px) {
+    nav ul {
+      gap: 1rem;
+      font-size: 0.875rem;
+    }
+
+    nav a.cta {
+      padding: 0.4rem 0.8rem;
+      font-size: 0.875rem;
+    }
+  }
+</style>

@@ -1,0 +1,556 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Entitle - Externalize Entitlement Logic for Your SaaS">
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <h1>Externalize Commercial Access Policy<br/>Without Touching Your Core Domain</h1>
+      <p class="subheading">
+        Entitle is a Policy Decision Platform (PDP) that externalizes entitlement logic 
+        from your codebase. We evaluate <em>whether</em> access is allowed—you enforce <em>what happens next</em>.
+      </p>
+      <div class="cta-buttons">
+        <a href="/alpha" class="btn btn-primary">Request Alpha Access</a>
+        <a href="#how-it-works" class="btn btn-secondary">See How It Works</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Entitle Section -->
+  <section class="why-entitle">
+    <div class="container">
+      <h2>Why Entitle Exists</h2>
+      <p class="section-intro">
+        Most SaaS teams hardcode feature gating, plan entitlements, and access rules into 
+        business logic. This makes pricing changes risky, slows delivery, and violates 
+        architectural boundaries.
+      </p>
+      <div class="features">
+        <div class="feature">
+          <h3>Supporting Domain by Design</h3>
+          <p>
+            Entitle operates as a <strong>supporting/generic domain</strong> in DDD terms. 
+            We never own your business logic or execute workflows—we evaluate policy decisions only.
+          </p>
+        </div>
+        <div class="feature">
+          <h3>Deterministic Policy Evaluation</h3>
+          <p>
+            Low-latency decision API (P95 &lt; 10ms target). Same input always produces the same output. 
+            Predictable, testable, and production-grade.
+          </p>
+        </div>
+        <div class="feature">
+          <h3>Progressive Adoption</h3>
+          <p>
+            Start in shadow mode with zero risk. Adopt incrementally. Intentionally replaceable 
+            through clear Anti-Corruption Layers.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How Entitle Works Section -->
+  <section id="how-it-works" class="how-it-works">
+    <div class="container">
+      <h2>How Entitle Works</h2>
+      <div class="steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <h3>Define Policy</h3>
+          <p>
+            Declare policies that map capabilities to plans, users, or organizations. 
+            Versioned, auditable, and independent of application code.
+          </p>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <h3>Call at Decision Boundaries</h3>
+          <p>
+            Your systems query Entitle at well-defined decision points using our SDK. 
+            Entitle evaluates policy and returns an allow/deny decision.
+          </p>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <h3>Enforce Locally</h3>
+          <p>
+            <strong>Critical:</strong> Your application enforces the decision. 
+            Entitle evaluates—your code controls what happens next.
+          </p>
+        </div>
+        <div class="step">
+          <div class="step-number">4</div>
+          <h3>Iterate Without Deployment</h3>
+          <p>
+            Change policies, add capabilities, adjust rollouts—all without touching 
+            production code. Shadow mode allows safe testing.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust & Architecture Section -->
+  <section class="trust">
+    <div class="container">
+      <h2>Architecture-Friendly by Design</h2>
+      <div class="trust-content">
+        <p class="intro">
+          Entitle is built with DDD principles, clear boundaries, and infrastructure-grade discipline. 
+          We operate as a <strong>consulted</strong> system, never an authoritative one.
+        </p>
+        <div class="trust-features">
+          <div class="trust-item">
+            <h4>Clear Anti-Corruption Layer</h4>
+            <p>
+              Integration happens through typed SDKs that form a clean boundary. 
+              Your core domain remains protected and independent.
+            </p>
+          </div>
+          <div class="trust-item">
+            <h4>Self-Governing Platform</h4>
+            <p>
+              Entitle uses itself to govern its own access control. No hidden super-user 
+              logic. If we can't safely govern ourselves, we're not fit to govern you.
+            </p>
+          </div>
+          <div class="trust-item">
+            <h4>Tenant & Scope Isolation</h4>
+            <p>
+              Hard multi-tenancy with row-level isolation. Tenant identity derived from 
+              authentication, never from request payload.
+            </p>
+          </div>
+          <div class="trust-item">
+            <h4>Incrementally Adoptable & Replaceable</h4>
+            <p>
+              Shadow mode allows zero-risk testing. Clear boundaries mean you can migrate 
+              away if needed. No lock-in by design.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What We Are NOT Section -->
+  <section class="not-section">
+    <div class="container">
+      <h2>What Entitle is NOT</h2>
+      <p class="intro">
+        Setting clear boundaries is critical for trust and architectural clarity.
+      </p>
+      <div class="not-grid">
+        <div class="not-item">
+          <h4>Not a Feature Flag Tool</h4>
+          <p>We evaluate commercial access policy, not product behavior experiments.</p>
+        </div>
+        <div class="not-item">
+          <h4>Not a Billing System</h4>
+          <p>We integrate with billing providers as input—we don't process payments.</p>
+        </div>
+        <div class="not-item">
+          <h4>Not an Enforcement Engine</h4>
+          <p>We return decisions. Your systems enforce them.</p>
+        </div>
+        <div class="not-item">
+          <h4>Not a Workflow Orchestrator</h4>
+          <p>We don't execute business logic or control feature behavior.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Security Section -->
+  <section class="security-summary">
+    <div class="container">
+      <h2>Security & Compliance</h2>
+      <div class="security-content">
+        <div class="security-item">
+          <h4>GDPR-Friendly Design</h4>
+          <p>Entitle processes policy decisions, not personal data.</p>
+        </div>
+        <div class="security-item">
+          <h4>Pseudonymous Identifiers Only</h4>
+          <p>Use tenant IDs and capability identifiers. No PII required.</p>
+        </div>
+        <div class="security-item">
+          <h4>No Customer Business Data Stored</h4>
+          <p>Entitle never stores your application data or user details.</p>
+        </div>
+      </div>
+      <p class="security-link">
+        <a href="/security">Read our full security documentation →</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- Final CTA Section -->
+  <section class="final-cta">
+    <div class="container">
+      <h2>Remove Entitlement Logic from Your Core Domain</h2>
+      <p>
+        Built for enterprise B2B SaaS. Trusted by engineering-led teams who value 
+        architectural discipline and production reliability.
+      </p>
+      <div class="cta-buttons">
+        <a href="/alpha" class="btn btn-primary">Request Alpha Access</a>
+        <a href="/docs" class="btn btn-secondary-light">Read Documentation</a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  /* Hero Section */
+  .hero {
+    padding: 5rem 0 4rem;
+    text-align: center;
+  }
+
+  .hero h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #111827;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.02em;
+  }
+
+  .hero .subheading {
+    font-size: 1.25rem;
+    line-height: 1.7;
+    color: #6b7280;
+    max-width: 850px;
+    margin: 0 auto 2.5rem;
+  }
+
+  .hero .subheading em {
+    font-style: italic;
+    color: #374151;
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    padding: 0.875rem 1.75rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.15s;
+    display: inline-block;
+  }
+
+  .btn-primary {
+    background: #2563eb;
+    color: white;
+  }
+
+  .btn-primary:hover {
+    background: #1d4ed8;
+  }
+
+  .btn-secondary {
+    background: white;
+    color: #2563eb;
+    border: 2px solid #2563eb;
+  }
+
+  .btn-secondary:hover {
+    background: #eff6ff;
+  }
+
+  .btn-secondary-light {
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+  }
+
+  .btn-secondary-light:hover {
+    background: rgba(255, 255, 255, 0.25);
+    border-color: rgba(255, 255, 255, 0.5);
+  }
+
+  /* Section Intros */
+  .section-intro {
+    text-align: center;
+    font-size: 1.125rem;
+    color: #6b7280;
+    max-width: 800px;
+    margin: 0 auto 3rem;
+    line-height: 1.7;
+  }
+
+  /* Why Entitle Section */
+  .why-entitle {
+    padding: 5rem 0;
+    background: #f9fafb;
+  }
+
+  .why-entitle h2,
+  .how-it-works h2,
+  .trust h2,
+  .not-section h2,
+  .security-summary h2,
+  .final-cta h2 {
+    font-size: 2.25rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #111827;
+  }
+
+  .features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2.5rem;
+  }
+
+  .feature h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    color: #111827;
+  }
+
+  .feature p {
+    color: #6b7280;
+    line-height: 1.7;
+  }
+
+  .feature strong {
+    color: #374151;
+    font-weight: 600;
+  }
+
+  /* How It Works Section */
+  .how-it-works {
+    padding: 5rem 0;
+  }
+
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 2rem;
+  }
+
+  .step {
+    text-align: center;
+  }
+
+  .step-number {
+    width: 48px;
+    height: 48px;
+    background: #2563eb;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.25rem;
+    margin: 0 auto 1rem;
+  }
+
+  .step h3 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    color: #111827;
+  }
+
+  .step p {
+    color: #6b7280;
+    line-height: 1.6;
+    font-size: 0.9375rem;
+  }
+
+  .step strong {
+    color: #dc2626;
+    font-weight: 600;
+  }
+
+  /* Trust Section */
+  .trust {
+    padding: 5rem 0;
+    background: #f9fafb;
+  }
+
+  .trust-content .intro {
+    text-align: center;
+    font-size: 1.125rem;
+    color: #6b7280;
+    max-width: 800px;
+    margin: 0 auto 3rem;
+    line-height: 1.7;
+  }
+
+  .trust-content .intro strong {
+    color: #374151;
+    font-weight: 600;
+  }
+
+  .trust-features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2rem;
+  }
+
+  .trust-item h4 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #111827;
+  }
+
+  .trust-item p {
+    color: #6b7280;
+    line-height: 1.6;
+    font-size: 0.9375rem;
+  }
+
+  /* What We Are NOT Section */
+  .not-section {
+    padding: 5rem 0;
+    background: #fffbeb;
+    border-top: 2px solid #fbbf24;
+    border-bottom: 2px solid #fbbf24;
+  }
+
+  .not-section .intro {
+    text-align: center;
+    font-size: 1.125rem;
+    color: #78350f;
+    max-width: 700px;
+    margin: 0 auto 3rem;
+    line-height: 1.7;
+  }
+
+  .not-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .not-item {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 2px solid #fcd34d;
+  }
+
+  .not-item h4 {
+    font-size: 1.0625rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #92400e;
+  }
+
+  .not-item p {
+    color: #78350f;
+    line-height: 1.6;
+    font-size: 0.9375rem;
+  }
+
+  /* Security Summary Section */
+  .security-summary {
+    padding: 5rem 0;
+  }
+
+  .security-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .security-item h4 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #111827;
+  }
+
+  .security-item p {
+    color: #6b7280;
+    line-height: 1.6;
+  }
+
+  .security-link {
+    text-align: center;
+    margin-top: 2rem;
+  }
+
+  .security-link a {
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.0625rem;
+  }
+
+  .security-link a:hover {
+    color: #1d4ed8;
+  }
+
+  /* Final CTA Section */
+  .final-cta {
+    padding: 5rem 0;
+    background: #111827;
+    color: white;
+    text-align: center;
+  }
+
+  .final-cta h2 {
+    color: white;
+    margin-bottom: 1rem;
+  }
+
+  .final-cta p {
+    font-size: 1.125rem;
+    color: #d1d5db;
+    margin-bottom: 2.5rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .hero h1 {
+      font-size: 2rem;
+    }
+
+    .hero .subheading {
+      font-size: 1.0625rem;
+    }
+
+    .why-entitle h2,
+    .how-it-works h2,
+    .trust h2,
+    .not-section h2,
+    .security-summary h2,
+    .final-cta h2 {
+      font-size: 1.75rem;
+    }
+
+    .features,
+    .steps,
+    .trust-features,
+    .not-grid,
+    .security-content {
+      gap: 2rem;
+    }
+  }
+</style>
