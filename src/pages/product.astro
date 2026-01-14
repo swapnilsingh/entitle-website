@@ -1,0 +1,1353 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout 
+  title="Product - Entitle" 
+  description="Feature Enablement as a Service - Externalize commercial access policy from your SaaS application"
+>
+  <!-- Hero Section -->
+  <section class="product-hero">
+    <div class="container">
+      <div class="product-hero-content">
+        <span class="badge">Feature Enablement as a Service</span>
+        <h1>Policy Decision Platform<br/>for Modern B2B SaaS</h1>
+        <p class="lead">
+          Entitle externalizes commercial access policy from your codebase. We evaluate <strong>whether</strong> 
+          capability access is allowed—you enforce <strong>what happens next</strong>.
+        </p>
+        <div class="cta-buttons">
+          <a href="/alpha" class="btn btn-primary">Request Alpha Access</a>
+          <a href="/docs" class="btn btn-secondary">Read Documentation</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Value Proposition -->
+  <section class="core-value">
+    <div class="container">
+      <div class="value-statement">
+        <h2>We externalize commercial access policy — not your business logic.</h2>
+        <p>That principle defines the product, the architecture, and the value proposition.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- What Entitle Delivers -->
+  <section class="what-delivers">
+    <div class="container">
+      <div class="section-header">
+        <span class="badge badge-primary">Platform Capabilities</span>
+        <h2>What the Platform Delivers</h2>
+      </div>
+      
+      <div class="delivery-categories">
+        <div class="category">
+          <div class="category-header">
+            <div class="category-icon">🎯</div>
+            <h3>Decision Engine</h3>
+          </div>
+          <ul>
+            <li>Feature and capability entitlements</li>
+            <li>Plan-to-capability mappings</li>
+            <li>Trials, grace periods, and expirations</li>
+            <li>Usage limits and quota signals</li>
+            <li>Rollouts and kill switches</li>
+          </ul>
+        </div>
+
+        <div class="category">
+          <div class="category-header">
+            <div class="category-icon">🔌</div>
+            <h3>Runtime & Integration</h3>
+          </div>
+          <ul>
+            <li>Low-latency decision API (P95 &lt; 10ms target)</li>
+            <li>Entitlement snapshots for caching</li>
+            <li>Typed SDKs with observability</li>
+            <li>Configurable failure strategies</li>
+            <li>Shadow mode for risk-free testing</li>
+          </ul>
+        </div>
+
+        <div class="category">
+          <div class="category-header">
+            <div class="category-icon">🛡️</div>
+            <h3>Governance & Trust</h3>
+          </div>
+          <ul>
+            <li>Policy management control plane</li>
+            <li>Audit trails and decision traces</li>
+            <li>RBAC and approval workflows</li>
+            <li>Policy versioning and rollback</li>
+            <li>Enterprise deployment options</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Capabilities -->
+  <section class="capabilities">
+    <div class="container">
+      <h2>Core Capabilities (In Scope)</h2>
+      
+      <div class="capability-grid">
+        <div class="capability-card">
+          <div class="capability-number">01</div>
+          <h3>Entitlement Decision API</h3>
+          <p>Evaluate capability access with deterministic, low-latency responses. Context-aware decisions based on user, organization, and environment.</p>
+          <div class="capability-meta">
+            <span class="meta-badge">Core</span>
+            <span class="meta-tag">Stateless</span>
+            <span class="meta-tag">Deterministic</span>
+          </div>
+        </div>
+
+        <div class="capability-card">
+          <div class="capability-number">02</div>
+          <h3>Policy & Rule Management</h3>
+          <p>Define policies declaratively without code changes. Versioned, auditable, and environment-specific policy control.</p>
+          <div class="capability-meta">
+            <span class="meta-badge">Core</span>
+            <span class="meta-tag">Versioned</span>
+            <span class="meta-tag">Declarative</span>
+          </div>
+        </div>
+
+        <div class="capability-card">
+          <div class="capability-number">03</div>
+          <h3>Plan-Capability Mapping</h3>
+          <p>Decouple pricing plans from code. Integrate with billing providers as input source only—we never process payments.</p>
+          <div class="capability-meta">
+            <span class="meta-badge">Essential</span>
+            <span class="meta-tag">Input-Only</span>
+          </div>
+        </div>
+
+        <div class="capability-card">
+          <div class="capability-number">04</div>
+          <h3>Trials & Grace Periods</h3>
+          <p>Handle trial lifecycles, grace periods, and expiration logic. Emit soft vs hard expiration signals to your application.</p>
+          <div class="capability-meta">
+            <span class="meta-badge">Essential</span>
+            <span class="meta-tag">Time-Aware</span>
+          </div>
+        </div>
+
+        <div class="capability-card">
+          <div class="capability-number">05</div>
+          <h3>Usage & Limit Evaluation</h3>
+          <p>Track usage counters and evaluate limits. Advisory signals only—enforcement remains in your application.</p>
+          <div class="capability-meta">
+            <span class="meta-badge">Advisory</span>
+            <span class="meta-tag">Non-Blocking</span>
+          </div>
+        </div>
+
+        <div class="capability-card">
+          <div class="capability-number">06</div>
+          <h3>Snapshots & Caching</h3>
+          <p>Precomputed entitlement snapshots for offline-safe behavior. Edge/CDN compatible for global performance.</p>
+          <div class="capability-meta">
+            <span class="meta-badge">Performance</span>
+            <span class="meta-tag">Offline-Safe</span>
+          </div>
+        </div>
+
+        <div class="capability-card">
+          <div class="capability-number">07</div>
+          <h3>Rollouts & Kill Switches</h3>
+          <p>Percentage-based rollouts, segment enablement, and emergency disable capabilities for operational safety.</p>
+          <div class="capability-meta">
+            <span class="meta-badge">Operational</span>
+            <span class="meta-tag">Controlled</span>
+          </div>
+        </div>
+
+        <div class="capability-card">
+          <div class="capability-number">08</div>
+          <h3>Audit & Decision Trace</h3>
+          <p>Complete visibility into why access was allowed or denied. Policy version traceability for compliance and debugging.</p>
+          <div class="capability-meta">
+            <span class="meta-badge">Compliance</span>
+            <span class="meta-tag">Traceable</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Integration Model -->
+  <section class="integration-model">
+    <div class="container">
+      <div class="section-header">
+        <span class="badge">Architecture</span>
+        <h2>How Systems Integrate</h2>
+        <p class="section-intro">
+          Entitle operates as a consulted system, never an authoritative one. 
+          Your application maintains full control over enforcement and data flow.
+        </p>
+      </div>
+
+      <div class="integration-steps">
+        <div class="integration-step">
+          <div class="step-marker">
+            <div class="step-icon">🔍</div>
+            <div class="step-line"></div>
+          </div>
+          <div class="step-content">
+            <h3>Call at Decision Boundaries</h3>
+            <p>Client systems call Entitle at well-defined decision points only. Never in business logic execution paths.</p>
+          </div>
+        </div>
+
+        <div class="integration-step">
+          <div class="step-marker">
+            <div class="step-icon">🧩</div>
+            <div class="step-line"></div>
+          </div>
+          <div class="step-content">
+            <h3>Anti-Corruption Layer</h3>
+            <p>Integration via typed SDKs forms a clean boundary. Your core domain remains protected and independent.</p>
+          </div>
+        </div>
+
+        <div class="integration-step">
+          <div class="step-marker">
+            <div class="step-icon">✅</div>
+            <div class="step-line"></div>
+          </div>
+          <div class="step-content">
+            <h3>Local Enforcement</h3>
+            <p>Your application always enforces decisions. We evaluate policy—you control what happens next.</p>
+          </div>
+        </div>
+
+        <div class="integration-step">
+          <div class="step-marker">
+            <div class="step-icon">⚙️</div>
+          </div>
+          <div class="step-content">
+            <h3>Configurable Failure Modes</h3>
+            <p>Choose fail-open or fail-closed behavior. Snapshots and caching ensure graceful degradation.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Non-Functional Requirements -->
+  <section class="nfr">
+    <div class="container">
+      <h2>Non-Functional Guarantees</h2>
+      <div class="nfr-grid">
+        <div class="nfr-card">
+          <div class="nfr-icon">⚡</div>
+          <h3>Performance</h3>
+          <p class="nfr-target">P95 &lt; 10ms</p>
+          <p class="nfr-desc">Low-latency decision API with cache-first design for production-grade speed.</p>
+        </div>
+
+        <div class="nfr-card">
+          <div class="nfr-icon">🔒</div>
+          <h3>Security</h3>
+          <p class="nfr-target">Hard Isolation</p>
+          <p class="nfr-desc">Strong tenant isolation with fine-grained RBAC. Row-level security at data layer.</p>
+        </div>
+
+        <div class="nfr-card">
+          <div class="nfr-icon">🛡️</div>
+          <h3>Reliability</h3>
+          <p class="nfr-target">Highly Available</p>
+          <p class="nfr-desc">Snapshot fallback, explicit staleness rules, and configurable failure strategies.</p>
+        </div>
+
+        <div class="nfr-card">
+          <div class="nfr-icon">📊</div>
+          <h3>Determinism</h3>
+          <p class="nfr-target">100% Reproducible</p>
+          <p class="nfr-desc">Same input always produces same output. Testable, auditable, and predictable.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Explicitly Out of Scope -->
+  <section class="out-of-scope">
+    <div class="container">
+      <div class="section-header">
+        <span class="badge">Clear Boundaries</span>
+        <h2>Explicitly Out of Scope</h2>
+        <p class="section-intro">
+          We believe in architectural discipline. These boundaries are non-negotiable 
+          and critical for DDD trust.
+        </p>
+      </div>
+
+      <div class="scope-grid">
+        <div class="scope-item">
+          <div class="scope-icon">❌</div>
+          <h3>Business Workflows</h3>
+          <p>We don't execute multi-step processes or coordinate business logic. That's your core domain.</p>
+        </div>
+
+        <div class="scope-item">
+          <div class="scope-icon">❌</div>
+          <h3>Feature Behavior Control</h3>
+          <p>We don't control what features do—only whether access is allowed. Implementation stays in your code.</p>
+        </div>
+
+        <div class="scope-item">
+          <div class="scope-icon">❌</div>
+          <h3>Pricing Strategy</h3>
+          <p>We don't optimize pricing or suggest plans. We consume plan data as input, nothing more.</p>
+        </div>
+
+        <div class="scope-item">
+          <div class="scope-icon">❌</div>
+          <h3>Throttling & Blocking</h3>
+          <p>We emit signals about limits—we don't enforce rate limiting or block requests directly.</p>
+        </div>
+
+        <div class="scope-item">
+          <div class="scope-icon">❌</div>
+          <h3>Billing Systems</h3>
+          <p>We integrate with billing providers for input only. We never process payments or manage subscriptions.</p>
+        </div>
+
+        <div class="scope-item">
+          <div class="scope-icon">❌</div>
+          <h3>Product Analytics</h3>
+          <p>We don't analyze feature usage outcomes or provide product insights. Decisions only.</p>
+        </div>
+      </div>
+
+      <div class="scope-principle">
+        <h3>Guiding Principle</h3>
+        <p>We sell <strong>capability decisions and trust</strong>, not product behavior. 
+        This principle governs all product decisions.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Self-Governing Platform -->
+  <section class="self-governing">
+    <div class="container">
+      <div class="self-gov-content">
+        <span class="badge">Dogfooding</span>
+        <h2>Self-Governing Platform</h2>
+        <p class="intro">
+          Entitle uses itself to govern its own access control. The same policy engine, scopes, 
+          delegation rules, and approval workflows that customers use are applied internally.
+        </p>
+
+        <div class="dogfood-grid">
+          <div class="dogfood-item">
+            <h4>Entitle as Its Own Tenant</h4>
+            <p>We operate as our own tenant within the platform. Internal actions are evaluated through Entitle policies.</p>
+          </div>
+
+          <div class="dogfood-item">
+            <h4>No Hidden Super-User Logic</h4>
+            <p>No hardcoded bypasses or special-case logic. If it exists for us, it exists for you.</p>
+          </div>
+
+          <div class="dogfood-item">
+            <h4>Production-Grade Discipline</h4>
+            <p>Self-dogfooding forces architectural correctness and eliminates operational blind spots.</p>
+          </div>
+        </div>
+
+        <div class="enterprise-takeaway">
+          <p class="takeaway-quote">
+            <strong>Enterprise takeaway:</strong> If Entitle cannot safely govern itself using its own platform, 
+            it is not fit to govern yours.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Value to Organizations -->
+  <section class="value-section">
+    <div class="container">
+      <h2>Value to Organizations</h2>
+      <div class="value-grid">
+        <div class="value-card">
+          <div class="value-icon">⚡</div>
+          <h3>Move Faster</h3>
+          <p>Change pricing, plans, or feature access without deployments. Ship commercial changes in minutes, not weeks.</p>
+        </div>
+
+        <div class="value-card">
+          <div class="value-icon">🔒</div>
+          <h3>Reduce Risk</h3>
+          <p>Externalize risky entitlement logic from core services. Shadow mode ensures zero-risk adoption.</p>
+        </div>
+
+        <div class="value-card">
+          <div class="value-icon">💰</div>
+          <h3>Lower Cost</h3>
+          <p>Stop maintaining internal entitlement systems. Predictable subscription replaces ongoing engineering cost.</p>
+        </div>
+
+        <div class="value-card">
+          <div class="value-icon">🏗️</div>
+          <h3>Architectural Discipline</h3>
+          <p>Clear DDD boundaries prevent entitlement logic from leaking into your core domain.</p>
+        </div>
+
+        <div class="value-card">
+          <div class="value-icon">📊</div>
+          <h3>Auditability</h3>
+          <p>Complete decision traces for compliance. Know exactly why access was granted or denied.</p>
+        </div>
+
+        <div class="value-card">
+          <div class="value-icon">🔄</div>
+          <h3>Replaceability</h3>
+          <p>No lock-in by design. Clear boundaries mean you can migrate away if needed.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Target Users -->
+  <section class="target-users">
+    <div class="container">
+      <div class="users-split">
+        <div class="users-column">
+          <h2>Who This Is For</h2>
+          
+          <div class="user-category">
+            <h3>Primary Buyers</h3>
+            <ul>
+              <li>CTOs / Heads of Engineering</li>
+              <li>Principal / Staff Engineers</li>
+              <li>Platform & Infrastructure teams</li>
+            </ul>
+          </div>
+
+          <div class="user-category">
+            <h3>Target Companies</h3>
+            <ul>
+              <li>B2B SaaS (Series A–C)</li>
+              <li>API-first products</li>
+              <li>AI / usage-based SaaS</li>
+              <li>Multi-tenant platforms</li>
+            </ul>
+          </div>
+
+          <div class="user-category">
+            <h3>Use Cases</h3>
+            <ul>
+              <li>Plan-based access control</li>
+              <li>Commercial entitlements</li>
+              <li>Feature flag proliferation</li>
+              <li>Pricing model changes</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="users-column">
+          <h2>Not For</h2>
+          
+          <div class="not-for-list">
+            <div class="not-for-item">
+              <div class="not-icon">×</div>
+              <div class="not-content">
+                <h4>Consumer Mobile Apps</h4>
+                <p>Built for B2B, not consumer-scale mobile applications.</p>
+              </div>
+            </div>
+
+            <div class="not-for-item">
+              <div class="not-icon">×</div>
+              <div class="not-content">
+                <h4>Early MVP Startups</h4>
+                <p>Best for companies with established pricing models and customer segments.</p>
+              </div>
+            </div>
+
+            <div class="not-for-item">
+              <div class="not-icon">×</div>
+              <div class="not-content">
+                <h4>Feature Flag Experimentation</h4>
+                <p>We handle commercial access, not A/B testing or gradual feature rollouts.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Buy vs Build -->
+  <section class="buy-vs-build">
+    <div class="container">
+      <h2>Why Buy Instead of Build</h2>
+      <p class="comparison-intro">
+        Enterprises can build similar systems internally. But building requires 
+        <strong>permanent ownership</strong> of a complex, cross-cutting domain with high operational risk.
+      </p>
+
+      <div class="comparison-table">
+        <div class="comparison-row header-row">
+          <div class="comparison-cell">Aspect</div>
+          <div class="comparison-cell">Build Internally</div>
+          <div class="comparison-cell">Use Entitle</div>
+        </div>
+
+        <div class="comparison-row">
+          <div class="comparison-cell">Initial Cost</div>
+          <div class="comparison-cell">6+ months engineering</div>
+          <div class="comparison-cell">Integrate in &lt; 1 day</div>
+        </div>
+
+        <div class="comparison-row">
+          <div class="comparison-cell">Ongoing Cost</div>
+          <div class="comparison-cell">Continuous maintenance</div>
+          <div class="comparison-cell">Predictable subscription</div>
+        </div>
+
+        <div class="comparison-row">
+          <div class="comparison-cell">Evolution</div>
+          <div class="comparison-cell">Hard to evolve safely</div>
+          <div class="comparison-cell">Built to evolve</div>
+        </div>
+
+        <div class="comparison-row">
+          <div class="comparison-cell">Ownership</div>
+          <div class="comparison-cell">Your burden forever</div>
+          <div class="comparison-cell">Dedicated ownership</div>
+        </div>
+
+        <div class="comparison-row">
+          <div class="comparison-cell">Risk</div>
+          <div class="comparison-cell">Stays internal</div>
+          <div class="comparison-cell">Externalized</div>
+        </div>
+
+        <div class="comparison-row">
+          <div class="comparison-cell">Architecture</div>
+          <div class="comparison-cell">Often leaks boundaries</div>
+          <div class="comparison-cell">DDD-aligned by design</div>
+        </div>
+      </div>
+
+      <div class="build-conclusion">
+        <p>You <em>can</em> build this. You probably don't want to <strong>own it forever</strong>.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="product-cta">
+    <div class="container">
+      <h2>Start Externalizing Entitlement Logic</h2>
+      <p>
+        Built for enterprise B2B SaaS. Trusted by engineering-led teams who value 
+        architectural discipline and production reliability.
+      </p>
+      <div class="cta-buttons">
+        <a href="/alpha" class="btn btn-primary">Request Alpha Access</a>
+        <a href="/docs" class="btn btn-secondary-light">Read Documentation</a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  /* Hero Section */
+  .product-hero {
+    padding: 5rem 0 4rem;
+    background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+    text-align: center;
+  }
+
+  .product-hero-content {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .product-hero h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    color: var(--color-text);
+  }
+
+  .product-hero .lead {
+    font-size: 1.375rem;
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+    margin-bottom: 2.5rem;
+  }
+
+  .product-hero .lead strong {
+    color: var(--color-text);
+  }
+
+  /* Core Value */
+  .core-value {
+    padding: 4rem 0;
+    background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+    border-top: 1px solid var(--color-border-light);
+    border-bottom: 1px solid var(--color-border-light);
+  }
+
+  .value-statement {
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .value-statement h2 {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: var(--color-primary-dark);
+    margin-bottom: 1rem;
+    line-height: 1.3;
+  }
+
+  .value-statement p {
+    font-size: 1.25rem;
+    color: var(--color-text-secondary);
+  }
+
+  /* What Delivers */
+  .what-delivers {
+    padding: 5rem 0;
+  }
+
+  .delivery-categories {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2.5rem;
+    margin-top: 3rem;
+  }
+
+  .category {
+    background: white;
+    border-radius: var(--radius-xl);
+    border: 1px solid var(--color-border-light);
+    padding: 2.5rem;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.3s ease;
+  }
+
+  .category:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--color-primary-light);
+  }
+
+  .category-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .category-icon {
+    font-size: 2.5rem;
+  }
+
+  .category h3 {
+    font-size: 1.5rem;
+    margin: 0;
+    color: var(--color-text);
+  }
+
+  .category ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .category li {
+    padding: 0.625rem 0 0.625rem 1.75rem;
+    position: relative;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+  }
+
+  .category li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--color-success);
+    font-weight: bold;
+  }
+
+  /* Capabilities */
+  .capabilities {
+    padding: 5rem 0;
+    background: var(--color-bg-secondary);
+  }
+
+  .capabilities h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: var(--color-text);
+  }
+
+  .capability-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+  }
+
+  .capability-card {
+    background: white;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-border-light);
+    padding: 2rem;
+    position: relative;
+    transition: all 0.3s ease;
+  }
+
+  .capability-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .capability-number {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: rgba(37, 99, 235, 0.1);
+  }
+
+  .capability-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+    color: var(--color-text);
+    padding-right: 3rem;
+  }
+
+  .capability-card p {
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+    margin-bottom: 1.25rem;
+  }
+
+  .capability-meta {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .meta-badge {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .meta-tag {
+    background: var(--color-bg-secondary);
+    color: var(--color-text-muted);
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 500;
+  }
+
+  /* Integration Model */
+  .integration-model {
+    padding: 5rem 0;
+  }
+
+  .integration-steps {
+    max-width: 800px;
+    margin: 3rem auto 0;
+  }
+
+  .integration-step {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 2rem;
+    margin-bottom: 3rem;
+  }
+
+  .integration-step:last-child {
+    margin-bottom: 0;
+  }
+
+  .step-marker {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .step-icon {
+    width: 64px;
+    height: 64px;
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    box-shadow: var(--shadow-lg);
+  }
+
+  .step-line {
+    width: 2px;
+    flex: 1;
+    background: linear-gradient(180deg, var(--color-primary) 0%, transparent 100%);
+    margin-top: 1rem;
+  }
+
+  .integration-step:last-child .step-line {
+    display: none;
+  }
+
+  .step-content h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+    color: var(--color-text);
+  }
+
+  .step-content p {
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  /* NFR */
+  .nfr {
+    padding: 5rem 0;
+    background: var(--color-bg-secondary);
+  }
+
+  .nfr h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: var(--color-text);
+  }
+
+  .nfr-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2rem;
+  }
+
+  .nfr-card {
+    background: white;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-border-light);
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+  }
+
+  .nfr-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .nfr-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+
+  .nfr-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    color: var(--color-text);
+  }
+
+  .nfr-target {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: 0.75rem;
+  }
+
+  .nfr-desc {
+    font-size: 0.9375rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* Out of Scope */
+  .out-of-scope {
+    padding: 5rem 0;
+  }
+
+  .scope-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+
+  .scope-item {
+    background: white;
+    border-radius: var(--radius-lg);
+    border: 1px solid rgba(239, 68, 68, 0.2);
+    padding: 2rem;
+    transition: all 0.3s ease;
+  }
+
+  .scope-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px -1px rgba(239, 68, 68, 0.1);
+  }
+
+  .scope-icon {
+    font-size: 2rem;
+    color: #dc2626;
+    margin-bottom: 1rem;
+  }
+
+  .scope-item h3 {
+    font-size: 1.125rem;
+    margin-bottom: 0.75rem;
+    color: var(--color-text);
+  }
+
+  .scope-item p {
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    margin: 0;
+    font-size: 0.9375rem;
+  }
+
+  .scope-principle {
+    margin-top: 3rem;
+    padding: 2rem;
+    background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+    border-radius: var(--radius-lg);
+    border: 2px solid #fbbf24;
+    text-align: center;
+  }
+
+  .scope-principle h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #92400e;
+  }
+
+  .scope-principle p {
+    font-size: 1.125rem;
+    color: #78350f;
+    margin: 0;
+    line-height: 1.7;
+  }
+
+  .scope-principle strong {
+    color: #78350f;
+    font-weight: 700;
+  }
+
+  /* Self-Governing */
+  .self-governing {
+    padding: 5rem 0;
+    background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+  }
+
+  .self-gov-content {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .self-governing h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--color-text);
+  }
+
+  .self-governing .intro {
+    font-size: 1.25rem;
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+    margin-bottom: 3rem;
+  }
+
+  .dogfood-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+    text-align: left;
+  }
+
+  .dogfood-item {
+    background: white;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-border-light);
+    padding: 2rem;
+  }
+
+  .dogfood-item h4 {
+    font-size: 1.125rem;
+    margin-bottom: 0.75rem;
+    color: var(--color-text);
+  }
+
+  .dogfood-item p {
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .enterprise-takeaway {
+    background: white;
+    border-radius: var(--radius-lg);
+    border-left: 4px solid var(--color-success);
+    padding: 2rem;
+    text-align: left;
+  }
+
+  .takeaway-quote {
+    font-size: 1.125rem;
+    color: var(--color-text);
+    margin: 0;
+    line-height: 1.7;
+  }
+
+  .takeaway-quote strong {
+    color: var(--color-success);
+    font-weight: 700;
+  }
+
+  /* Value Section */
+  .value-section {
+    padding: 5rem 0;
+    background: var(--color-bg-secondary);
+  }
+
+  .value-section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: var(--color-text);
+  }
+
+  .value-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+
+  .value-card {
+    background: white;
+    border-radius: var(--radius-xl);
+    border: 1px solid var(--color-border-light);
+    padding: 2.5rem;
+    text-align: center;
+    transition: all 0.3s ease;
+  }
+
+  .value-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--color-primary-light);
+  }
+
+  .value-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+
+  .value-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+    color: var(--color-text);
+  }
+
+  .value-card p {
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* Target Users */
+  .target-users {
+    padding: 5rem 0;
+  }
+
+  .users-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+  }
+
+  .users-column h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: var(--color-text);
+  }
+
+  .user-category {
+    margin-bottom: 2rem;
+  }
+
+  .user-category h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+    color: var(--color-text);
+  }
+
+  .user-category ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .user-category li {
+    padding: 0.5rem 0 0.5rem 1.75rem;
+    position: relative;
+    color: var(--color-text-secondary);
+  }
+
+  .user-category li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--color-primary);
+    font-weight: bold;
+  }
+
+  .not-for-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .not-for-item {
+    display: flex;
+    gap: 1rem;
+    padding: 1.5rem;
+    background: #fef2f2;
+    border-radius: var(--radius-lg);
+    border: 1px solid #fecaca;
+  }
+
+  .not-icon {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    background: #dc2626;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+
+  .not-content h4 {
+    font-size: 1.125rem;
+    margin-bottom: 0.5rem;
+    color: var(--color-text);
+  }
+
+  .not-content p {
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    margin: 0;
+    font-size: 0.9375rem;
+  }
+
+  /* Buy vs Build */
+  .buy-vs-build {
+    padding: 5rem 0;
+    background: var(--color-bg-secondary);
+  }
+
+  .buy-vs-build h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--color-text);
+  }
+
+  .comparison-intro {
+    text-align: center;
+    font-size: 1.125rem;
+    color: var(--color-text-secondary);
+    max-width: 800px;
+    margin: 0 auto 3rem;
+    line-height: 1.7;
+  }
+
+  .comparison-intro strong {
+    color: var(--color-text);
+    font-weight: 700;
+  }
+
+  .comparison-table {
+    background: white;
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+  }
+
+  .comparison-row {
+    display: grid;
+    grid-template-columns: 200px 1fr 1fr;
+    border-bottom: 1px solid var(--color-border-light);
+  }
+
+  .comparison-row:last-child {
+    border-bottom: none;
+  }
+
+  .header-row {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    color: white;
+    font-weight: 700;
+  }
+
+  .comparison-cell {
+    padding: 1.25rem 1.5rem;
+    border-right: 1px solid var(--color-border-light);
+  }
+
+  .comparison-cell:last-child {
+    border-right: none;
+  }
+
+  .header-row .comparison-cell {
+    border-right-color: rgba(255, 255, 255, 0.2);
+  }
+
+  .comparison-row:not(.header-row) .comparison-cell:first-child {
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  .comparison-row:not(.header-row) .comparison-cell:nth-child(2) {
+    color: #dc2626;
+  }
+
+  .comparison-row:not(.header-row) .comparison-cell:nth-child(3) {
+    color: var(--color-success);
+    font-weight: 500;
+  }
+
+  .build-conclusion {
+    margin-top: 2rem;
+    text-align: center;
+  }
+
+  .build-conclusion p {
+    font-size: 1.25rem;
+    color: var(--color-text-secondary);
+  }
+
+  .build-conclusion em {
+    font-style: italic;
+    color: var(--color-text);
+  }
+
+  .build-conclusion strong {
+    color: var(--color-text);
+    font-weight: 700;
+  }
+
+  /* Product CTA */
+  .product-cta {
+    padding: 5rem 0;
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    color: white;
+    text-align: center;
+  }
+
+  .product-cta h2 {
+    font-size: 2.5rem;
+    color: white;
+    margin-bottom: 1rem;
+  }
+
+  .product-cta p {
+    font-size: 1.25rem;
+    color: rgba(255, 255, 255, 0.9);
+    max-width: 700px;
+    margin: 0 auto 2.5rem;
+  }
+
+  /* Responsive */
+  @media (max-width: 968px) {
+    .product-hero h1 {
+      font-size: 2.5rem;
+    }
+
+    .product-hero .lead {
+      font-size: 1.125rem;
+    }
+
+    .value-statement h2 {
+      font-size: 1.75rem;
+    }
+
+    .integration-step {
+      grid-template-columns: 60px 1fr;
+      gap: 1.5rem;
+    }
+
+    .step-icon {
+      width: 48px;
+      height: 48px;
+      font-size: 1.5rem;
+    }
+
+    .users-split {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+
+    .comparison-row {
+      grid-template-columns: 1fr;
+    }
+
+    .comparison-cell {
+      border-right: none;
+      border-bottom: 1px solid var(--color-border-light);
+    }
+
+    .comparison-cell:last-child {
+      border-bottom: none;
+    }
+
+    .comparison-row:not(:last-child) .comparison-cell:last-child {
+      border-bottom: 1px solid var(--color-border-light);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .product-hero {
+      padding: 3rem 0 2rem;
+    }
+
+    .product-hero h1 {
+      font-size: 2rem;
+    }
+
+    .delivery-categories,
+    .capability-grid,
+    .nfr-grid,
+    .scope-grid,
+    .value-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
