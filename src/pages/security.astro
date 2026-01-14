@@ -8,11 +8,23 @@ import Layout from '../layouts/Layout.astro';
 >
   <section class="security-hero">
     <div class="container">
-      <h1>Security & Compliance</h1>
-      <p class="lead">
-        Entitle is architected as a policy processor, not a data processor. 
-        We handle decisions, not your customer data.
-      </p>
+      <div class="security-hero-grid">
+        <div class="security-hero-content">
+          <h1>Security & Compliance</h1>
+          <p class="lead">
+            Entitle is architected as a policy processor, not a data processor. 
+            We handle decisions, not your customer data.
+          </p>
+          <div class="security-badges">
+            <span class="security-badge">🔒 SOC 2 Type II (In Progress)</span>
+            <span class="security-badge">🛡️ GDPR Compliant</span>
+            <span class="security-badge">🌐 Multi-Tenant Architecture</span>
+          </div>
+        </div>
+        <div class="security-hero-image">
+          <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800&h=600&fit=crop&q=80" alt="Security and protection" />
+        </div>
+      </div>
     </div>
   </section>
 
@@ -62,6 +74,31 @@ import Layout from '../layouts/Layout.astro';
       <!-- Data Handling -->
       <div class="security-section">
         <h2>Data Handling</h2>
+        <div class="data-handling-grid">
+          <div class="data-card">
+            <img src="https://images.unsplash.com/photo-1633265486064-086b219458ec?w=600&h=400&fit=crop&q=80" alt="Data security" />
+            <h3>What We Store</h3>
+            <ul>
+              <li>Policy definitions and rules</li>
+              <li>Pseudonymous principal identifiers (tenant_abc123)</li>
+              <li>Capability identifiers (feature_analytics)</li>
+              <li>Decision audit logs (who accessed what, when)</li>
+              <li>Optional context metadata (environment, region)</li>
+            </ul>
+          </div>
+          <div class="data-card">
+            <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600&h=400&fit=crop&q=80" alt="Data protection" />
+            <h3>What We Never Store</h3>
+            <ul>
+              <li>User emails, names, or personal information</li>
+              <li>Your application's business data</li>
+              <li>Payment or billing information</li>
+              <li>Customer records or user profiles</li>
+              <li>Feature implementation details</li>
+            </ul>
+          </div>
+        </div>
+      </div>
         <p>
           Understanding what Entitle does and doesn't store is critical for compliance and trust.
         </p>

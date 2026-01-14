@@ -8,10 +8,22 @@ import Layout from '../../layouts/Layout.astro';
 >
   <section class="docs-hero">
     <div class="container">
-      <h1>Documentation</h1>
-      <p class="lead">
-        Learn how to integrate Entitle's policy decision platform into your B2B SaaS application.
-      </p>
+      <div class="docs-hero-grid">
+        <div class="docs-hero-content">
+          <h1>Documentation</h1>
+          <p class="lead">
+            Learn how to integrate Entitle's policy decision platform into your B2B SaaS application.
+          </p>
+          <div class="docs-quick-links">
+            <a href="#quickstart" class="quick-link">🚀 Quickstart</a>
+            <a href="#decision-api" class="quick-link">🔌 Decision API</a>
+            <a href="#sdk" class="quick-link">📦 SDK Usage</a>
+          </div>
+        </div>
+        <div class="docs-hero-image">
+          <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=600&fit=crop&q=80" alt="Developer coding" />
+        </div>
+      </div>
     </div>
   </section>
 
@@ -134,8 +146,22 @@ app.get('/api/analytics',
 
       <!-- Shadow Mode -->
       <div class="doc-section">
-        <h2>Shadow Mode</h2>
-        <p>
+        <h2 id="shadow-mode">Shadow Mode</h2>
+        <div class="feature-highlight">
+          <div class="feature-highlight-content">
+            <p>
+              Shadow mode allows you to test Entitle's decisions without enforcing them in production. 
+              This is critical for validating policy logic before switching to enforcement mode.
+            </p>
+            <div class="highlight-box">
+              <strong>Zero Risk Testing:</strong> Deploy Entitle integration with shadow mode enabled. 
+              Compare decisions against your existing logic. Switch to enforcement only when confident.
+            </div>
+          </div>
+          <div class="feature-highlight-image">
+            <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=400&fit=crop&q=80" alt="Testing and validation" />
+          </div>
+        </div>
           Shadow mode allows you to test Entitle's policy decisions without affecting your production 
           traffic. In shadow mode, the SDK calls Entitle but always returns a default decision while 
           logging what the real decision would have been.

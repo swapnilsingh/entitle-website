@@ -6,14 +6,19 @@ import Layout from '../layouts/Layout.astro';
   <!-- Hero Section -->
   <section class="hero">
     <div class="container">
-      <h1>Externalize Commercial Access Policy<br/>Without Touching Your Core Domain</h1>
-      <p class="subheading">
-        Entitle is a Policy Decision Platform (PDP) that externalizes entitlement logic 
-        from your codebase. We evaluate <em>whether</em> access is allowed—you enforce <em>what happens next</em>.
-      </p>
-      <div class="cta-buttons">
-        <a href="/alpha" class="btn btn-primary">Request Alpha Access</a>
-        <a href="#how-it-works" class="btn btn-secondary">See How It Works</a>
+      <div class="hero-content">
+        <h1>Externalize Commercial Access Policy<br/>Without Touching Your Core Domain</h1>
+        <p class="subheading">
+          Entitle is a Policy Decision Platform (PDP) that externalizes entitlement logic 
+          from your codebase. We evaluate <em>whether</em> access is allowed—you enforce <em>what happens next</em>.
+        </p>
+        <div class="cta-buttons">
+          <a href="/alpha" class="btn btn-primary">Request Alpha Access</a>
+          <a href="#how-it-works" class="btn btn-secondary">See How It Works</a>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=800&fit=crop&q=80" alt="Data visualization dashboard" />
       </div>
     </div>
   </section>
@@ -106,7 +111,42 @@ import Layout from '../layouts/Layout.astro';
   <!-- Trust & Architecture Section -->
   <section class="trust">
     <div class="container">
-      <h2>Architecture-Friendly by Design</h2>
+      <div class="trust-grid">
+        <div class="trust-content">
+          <div class="section-header" style="text-align: left;">
+            <span class="badge">Architecture</span>
+            <h2>Architecture-Friendly by Design</h2>
+          </div>
+          <div class="trust-points">
+            <div class="trust-point">
+              <h4>🔒 Self-Governing Platform</h4>
+              <p>
+                Entitle never calls your systems. Your application calls us. You maintain full control 
+                over enforcement and data flow.
+              </p>
+            </div>
+            <div class="trust-point">
+              <h4>🧩 Anti-Corruption Layer Built-In</h4>
+              <p>
+                Clean SDK interfaces prevent vendor lock-in. Replace Entitle without refactoring 
+                business logic.
+              </p>
+            </div>
+            <div class="trust-point">
+              <h4>📊 Observable & Testable</h4>
+              <p>
+                Full audit logs, versioned policies, and shadow mode for risk-free testing. 
+                Production-grade from day one.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="trust-image">
+          <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&h=1000&fit=crop&q=80" alt="Modern architecture" />
+        </div>
+      </div>
+    </div>
+  </section>
       <div class="trust-content">
         <p class="intro">
           Entitle is built with DDD principles, clear boundaries, and infrastructure-grade discipline. 
@@ -149,26 +189,73 @@ import Layout from '../layouts/Layout.astro';
   <!-- What We Are NOT Section -->
   <section class="not-section">
     <div class="container">
-      <h2>What Entitle is NOT</h2>
-      <p class="intro">
-        Setting clear boundaries is critical for trust and architectural clarity.
-      </p>
+      <div class="section-header">
+        <span class="badge">Clear Boundaries</span>
+        <h2>What Entitle is NOT</h2>
+        <p class="section-intro">
+          Setting clear boundaries is critical for trust and architectural clarity.
+        </p>
+      </div>
       <div class="not-grid">
         <div class="not-item">
+          <span class="not-icon">❌</span>
           <h4>Not a Feature Flag Tool</h4>
           <p>We evaluate commercial access policy, not product behavior experiments.</p>
         </div>
         <div class="not-item">
+          <span class="not-icon">❌</span>
           <h4>Not a Billing System</h4>
           <p>We integrate with billing providers as input—we don't process payments.</p>
         </div>
         <div class="not-item">
+          <span class="not-icon">❌</span>
           <h4>Not an Enforcement Engine</h4>
           <p>We return decisions. Your systems enforce them.</p>
         </div>
         <div class="not-item">
+          <span class="not-icon">❌</span>
           <h4>Not a Workflow Orchestrator</h4>
           <p>We don't execute business logic or control feature behavior.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Use Cases Section -->
+  <section class="use-cases">
+    <div class="container">
+      <div class="section-header">
+        <span class="badge badge-primary">Use Cases</span>
+        <h2>Built for Modern B2B SaaS</h2>
+      </div>
+      <div class="use-case-grid">
+        <div class="use-case">
+          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop&q=80" alt="Analytics dashboard" />
+          <div class="use-case-content">
+            <h3>📊 Feature Access Control</h3>
+            <p>Control access to premium features based on plan tiers without hardcoding logic in your application.</p>
+          </div>
+        </div>
+        <div class="use-case">
+          <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=600&h=400&fit=crop&q=80" alt="Team collaboration" />
+          <div class="use-case-content">
+            <h3>👥 Multi-Tenant Access</h3>
+            <p>Manage complex tenant hierarchies and organization-level permissions with clear policy rules.</p>
+          </div>
+        </div>
+        <div class="use-case">
+          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop&q=80" alt="Usage limits" />
+          <div class="use-case-content">
+            <h3>📈 Usage Limits & Quotas</h3>
+            <p>Enforce API rate limits, storage quotas, and seat limits based on subscription tiers.</p>
+          </div>
+        </div>
+        <div class="use-case">
+          <img src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=600&h=400&fit=crop&q=80" alt="Beta rollout" />
+          <div class="use-case-content">
+            <h3>🚀 Beta Feature Rollouts</h3>
+            <p>Gradually roll out new features to specific customer segments with fine-grained control.</p>
+          </div>
         </div>
       </div>
     </div>
