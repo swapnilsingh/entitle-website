@@ -21,14 +21,18 @@ import Layout from '../layouts/Layout.astro';
   <!-- Why Entitle Section -->
   <section class="why-entitle">
     <div class="container">
-      <h2>Why Entitle Exists</h2>
-      <p class="section-intro">
-        Most SaaS teams hardcode feature gating, plan entitlements, and access rules into 
-        business logic. This makes pricing changes risky, slows delivery, and violates 
-        architectural boundaries.
-      </p>
+      <div class="section-header">
+        <span class="badge">The Problem</span>
+        <h2>Why Entitle Exists</h2>
+        <p class="section-intro">
+          Most SaaS teams hardcode feature gating, plan entitlements, and access rules into 
+          business logic. This makes pricing changes risky, slows delivery, and violates 
+          architectural boundaries.
+        </p>
+      </div>
       <div class="features">
         <div class="feature">
+          <div class="feature-icon">🏗️</div>
           <h3>Supporting Domain by Design</h3>
           <p>
             Entitle operates as a <strong>supporting/generic domain</strong> in DDD terms. 
@@ -36,6 +40,7 @@ import Layout from '../layouts/Layout.astro';
           </p>
         </div>
         <div class="feature">
+          <div class="feature-icon">⚡</div>
           <h3>Deterministic Policy Evaluation</h3>
           <p>
             Low-latency decision API (P95 &lt; 10ms target). Same input always produces the same output. 
@@ -43,6 +48,7 @@ import Layout from '../layouts/Layout.astro';
           </p>
         </div>
         <div class="feature">
+          <div class="feature-icon">🎯</div>
           <h3>Progressive Adoption</h3>
           <p>
             Start in shadow mode with zero risk. Adopt incrementally. Intentionally replaceable 
@@ -56,7 +62,10 @@ import Layout from '../layouts/Layout.astro';
   <!-- How Entitle Works Section -->
   <section id="how-it-works" class="how-it-works">
     <div class="container">
-      <h2>How Entitle Works</h2>
+      <div class="section-header">
+        <span class="badge badge-primary">How It Works</span>
+        <h2>Four Steps to Externalized Policy</h2>
+      </div>
       <div class="steps">
         <div class="step">
           <div class="step-number">1</div>
