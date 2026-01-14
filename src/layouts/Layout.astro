@@ -205,6 +205,25 @@ const { title, description = 'Entitle - Externalize Entitlement Logic for Your S
     background: linear-gradient(90deg, var(--color-accent) 0%, var(--color-primary) 100%);
   }
 
+  .what-not-icon {
+    width: 100%;
+    height: 160px;
+    overflow: hidden;
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    margin: -1px -1px 0 -1px;
+  }
+
+  .what-not-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  .what-not-item:hover .what-not-icon img {
+    transform: scale(1.05);
+  }
+
   .what-not-item:hover {
     transform: translateY(-4px);
     box-shadow: 0 20px 25px -5px rgba(139, 92, 246, 0.15);
@@ -415,6 +434,21 @@ const { title, description = 'Entitle - Externalize Entitlement Logic for Your S
     background: white;
     border-radius: var(--radius-lg);
     border: 1px solid var(--color-border-light);
+    overflow: hidden;
+  }
+
+  .trust-point-icon {
+    width: 100%;
+    height: 120px;
+    margin-bottom: 1rem;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+  }
+
+  .trust-point-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 
   .trust-point h4 {
@@ -693,6 +727,25 @@ const { title, description = 'Entitle - Externalize Entitlement Logic for Your S
     font-size: 2.5rem;
     margin-bottom: 1rem;
     display: block;
+  }
+
+  .feature-icon-img {
+    width: 100%;
+    height: 180px;
+    margin-bottom: 1.5rem;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+  }
+
+  .feature-icon-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  .feature:hover .feature-icon-img img {
+    transform: scale(1.05);
   }
 
   .feature h3 {

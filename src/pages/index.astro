@@ -37,7 +37,9 @@ import Layout from '../layouts/Layout.astro';
       </div>
       <div class="features">
         <div class="feature">
-          <div class="feature-icon">🏗️</div>
+          <div class="feature-icon-img">
+            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400&h=300&fit=crop&q=80" alt="Architecture" />
+          </div>
           <h3>Supporting Domain by Design</h3>
           <p>
             Entitle operates as a <strong>supporting/generic domain</strong> in DDD terms. 
@@ -45,7 +47,9 @@ import Layout from '../layouts/Layout.astro';
           </p>
         </div>
         <div class="feature">
-          <div class="feature-icon">⚡</div>
+          <div class="feature-icon-img">
+            <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=400&h=300&fit=crop&q=80" alt="Performance" />
+          </div>
           <h3>Deterministic Policy Evaluation</h3>
           <p>
             Low-latency decision API (P95 &lt; 10ms target). Same input always produces the same output. 
@@ -53,7 +57,9 @@ import Layout from '../layouts/Layout.astro';
           </p>
         </div>
         <div class="feature">
-          <div class="feature-icon">🎯</div>
+          <div class="feature-icon-img">
+            <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop&q=80" alt="Progressive adoption" />
+          </div>
           <h3>Progressive Adoption</h3>
           <p>
             Start in shadow mode with zero risk. Adopt incrementally. Intentionally replaceable 
@@ -119,21 +125,30 @@ import Layout from '../layouts/Layout.astro';
           </div>
           <div class="trust-points">
             <div class="trust-point">
-              <h4>🔒 Self-Governing Platform</h4>
+              <div class="trust-point-icon">
+                <img src="https://images.unsplash.com/photo-1614064641938-3bbee52942c7?w=300&h=200&fit=crop&q=80" alt="Security lock" />
+              </div>
+              <h4>Self-Governing Platform</h4>
               <p>
                 Entitle never calls your systems. Your application calls us. You maintain full control 
                 over enforcement and data flow.
               </p>
             </div>
             <div class="trust-point">
-              <h4>🧩 Anti-Corruption Layer Built-In</h4>
+              <div class="trust-point-icon">
+                <img src="https://images.unsplash.com/photo-1559028012-481c04fa702d?w=300&h=200&fit=crop&q=80" alt="Integration" />
+              </div>
+              <h4>Anti-Corruption Layer Built-In</h4>
               <p>
                 Clean SDK interfaces prevent vendor lock-in. Replace Entitle without refactoring 
                 business logic.
               </p>
             </div>
             <div class="trust-point">
-              <h4>📊 Observable & Testable</h4>
+              <div class="trust-point-icon">
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=300&h=200&fit=crop&q=80" alt="Analytics" />
+              </div>
+              <h4>Observable & Testable</h4>
               <p>
                 Full audit logs, versioned policies, and shadow mode for risk-free testing. 
                 Production-grade from day one.
@@ -198,26 +213,38 @@ import Layout from '../layouts/Layout.astro';
       </div>
       <div class="what-not-grid">
         <div class="what-not-item">
+          <div class="what-not-icon">
+            <img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=400&h=300&fit=crop&q=80" alt="Feature flags" />
+          </div>
           <div class="what-not-content">
-            <h3>🚩 Feature Flags</h3>
+            <h3>Feature Flags</h3>
             <p>We're not about A/B testing or gradual rollouts. We focus on <strong>commercial access policy</strong>—who can access what based on their subscription, not experimental feature toggles.</p>
           </div>
         </div>
         <div class="what-not-item">
+          <div class="what-not-icon">
+            <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=400&h=300&fit=crop&q=80" alt="Payment processing" />
+          </div>
           <div class="what-not-content">
-            <h3>💳 Billing System</h3>
+            <h3>Billing System</h3>
             <p>We don't process payments or manage subscriptions. We <strong>integrate with</strong> your billing provider (Stripe, Chargebee) to make policy decisions based on plan data.</p>
           </div>
         </div>
         <div class="what-not-item">
+          <div class="what-not-icon">
+            <img src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=400&h=300&fit=crop&q=80" alt="Enforcement" />
+          </div>
           <div class="what-not-content">
-            <h3>🔐 Enforcement Engine</h3>
+            <h3>Enforcement Engine</h3>
             <p>We return allow/deny decisions. Your application <strong>remains in control</strong> of what happens next. We evaluate policy—you enforce it.</p>
           </div>
         </div>
         <div class="what-not-item">
+          <div class="what-not-icon">
+            <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400&h=300&fit=crop&q=80" alt="Workflow automation" />
+          </div>
           <div class="what-not-content">
-            <h3>⚙️ Workflow Orchestration</h3>
+            <h3>Workflow Orchestration</h3>
             <p>We don't execute business logic or coordinate multi-step processes. We're a <strong>pure policy evaluator</strong>, not a workflow engine.</p>
           </div>
         </div>
@@ -236,28 +263,28 @@ import Layout from '../layouts/Layout.astro';
         <div class="use-case">
           <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop&q=80" alt="Analytics dashboard" />
           <div class="use-case-content">
-            <h3>📊 Feature Access Control</h3>
+            <h3>Feature Access Control</h3>
             <p>Control access to premium features based on plan tiers without hardcoding logic in your application.</p>
           </div>
         </div>
         <div class="use-case">
           <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=600&h=400&fit=crop&q=80" alt="Team collaboration" />
           <div class="use-case-content">
-            <h3>👥 Multi-Tenant Access</h3>
+            <h3>Multi-Tenant Access</h3>
             <p>Manage complex tenant hierarchies and organization-level permissions with clear policy rules.</p>
           </div>
         </div>
         <div class="use-case">
           <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop&q=80" alt="Usage limits" />
           <div class="use-case-content">
-            <h3>📈 Usage Limits & Quotas</h3>
+            <h3>Usage Limits & Quotas</h3>
             <p>Enforce API rate limits, storage quotas, and seat limits based on subscription tiers.</p>
           </div>
         </div>
         <div class="use-case">
           <img src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=600&h=400&fit=crop&q=80" alt="Beta rollout" />
           <div class="use-case-content">
-            <h3>🚀 Beta Feature Rollouts</h3>
+            <h3>Beta Feature Rollouts</h3>
             <p>Gradually roll out new features to specific customer segments with fine-grained control.</p>
           </div>
         </div>
