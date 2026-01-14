@@ -4,7 +4,7 @@ import Layout from '../../layouts/Layout.astro';
 
 <Layout 
   title="Documentation - Entitle" 
-  description="Get started with Entitle's policy decision platform"
+  description="Get started with Entitle's policy decision platform for B2B SaaS"
 >
   <section class="docs-hero">
     <div class="container">
@@ -12,12 +12,14 @@ import Layout from '../../layouts/Layout.astro';
         <div class="docs-hero-content">
           <h1>Documentation</h1>
           <p class="lead">
-            Learn how to integrate Entitle's policy decision platform into your B2B SaaS application.
+            Complete guide to integrating Entitle's Policy Decision Platform into your B2B SaaS application. 
+            Built for engineering teams who value architectural discipline.
           </p>
           <div class="docs-quick-links">
             <a href="#quickstart" class="quick-link">🚀 Quickstart</a>
             <a href="#decision-api" class="quick-link">🔌 Decision API</a>
             <a href="#sdk" class="quick-link">📦 SDK Usage</a>
+            <a href="#shadow-mode" class="quick-link">👥 Shadow Mode</a>
           </div>
         </div>
         <div class="docs-hero-image">
@@ -30,58 +32,129 @@ import Layout from '../../layouts/Layout.astro';
   <section class="docs-content">
     <div class="container">
       <!-- Quickstart Overview -->
-      <div class="doc-section">
+      <div class="doc-section" id="quickstart">
         <h2>Quickstart Overview</h2>
         <p>
-          Entitle provides a decision API that evaluates whether a principal (user, tenant, or organization) 
-          can access a specific capability. Your application calls Entitle at runtime, receives an 
-          allow/deny decision, and enforces that decision locally.
+          Entitle is a <strong>Policy Decision Platform (PDP)</strong> that externalizes commercial access 
+          policy from your application code. We answer one fundamental question:
+        </p>
+        <div class="core-question">
+          <p><em>Is a given capability allowed for a given principal right now, and under what limits?</em></p>
+        </div>
+        <p>
+          Your application calls Entitle at well-defined decision boundaries, receives an allow/deny decision, 
+          and <strong>enforces that decision locally</strong>. We evaluate policy—you control behavior.
         </p>
         <div class="highlight-box">
-          <strong>Key Concept:</strong> Entitle evaluates decisions only. Your application is responsible 
-          for enforcing those decisions in your business logic.
+          <strong>Critical Principle:</strong> Entitle evaluates decisions only. Your application remains 
+          responsible for enforcement. We never execute workflows or control feature behavior.
+        </div>
+      </div>
+
+      <!-- Integration Philosophy -->
+      <div class="doc-section">
+        <h2>Integration Philosophy</h2>
+        <div class="philosophy-grid">
+          <div class="philosophy-item">
+            <h3>Anti-Corruption Layer</h3>
+            <p>Integration via typed SDKs forms a clean boundary between Entitle and your core domain.</p>
+          </div>
+          <div class="philosophy-item">
+            <h3>Progressive Adoption</h3>
+            <p>Start with shadow mode, move to partial enforcement, then full adoption. No big-bang migration.</p>
+          </div>
+          <div class="philosophy-item">
+            <h3>Deliberately Replaceable</h3>
+            <p>Clear boundaries mean you can migrate away if needed. No lock-in by design.</p>
+          </div>
         </div>
       </div>
 
       <!-- Decision API -->
-      <div class="doc-section">
-        <h2>Decision API</h2>
+      <div class="doc-section" id="decision-api">
+        <h2>Decision Evaluation API</h2>
         <p>
-          The Decision API is a REST endpoint that accepts a principal identifier and a capability identifier, 
-          then returns a deterministic allow or deny decision based on your configured policies.
+          The core API endpoint evaluates whether a principal is allowed to access a capability. 
+          It is <strong>stateless, deterministic, and low-latency</strong> (P95 &lt; 10ms target).
         </p>
         
         <h3>Endpoint</h3>
-        <pre><code>POST https://api.entitle.dev/v1/decision</code></pre>
+        <pre><code>POST /v1/evaluate</code></pre>
 
-        <h3>Request Body</h3>
+        <h3>Request Format</h3>
         <pre><code>{`{
-  "principal": "tenant_abc123",
-  "capability": "feature_advanced_analytics",
+  "capability": "export-data",
+  "principal": {
+    "user_id": "user-123",
+    "org_id": "org-456"
+  },
   "context": {
     "environment": "production"
   }
 }`}</code></pre>
 
-        <h3>Response</h3>
+        <h3>Response Format</h3>
         <pre><code>{`{
-  "decision": "allow",
+  "allowed": true,
   "reason": "policy_match",
-  "policyId": "policy_xyz"
+  "policy_version": "v1"
 }`}</code></pre>
 
-        <p class="note">
-          <strong>Note:</strong> The context object is optional and can include any additional 
-          metadata needed for policy evaluation.
+        <h3>Key Characteristics</h3>
+        <ul>
+          <li><strong>Tenant context resolved via authentication</strong> - Never from request payload</li>
+          <li><strong>Deterministic</strong> - Same input always produces same output</li>
+          <li><strong>Stateless</strong> - No session state maintained</li>
+          <li><strong>Fast</strong> - Target P95 latency under 10ms</li>
+        </ul>
+
+        <div class="note">
+          <strong>Important:</strong> Entitle evaluates policy only. Enforcement remains with your application. 
+          The decision tells you <em>whether</em> access is allowed—your code decides <em>what happens next</em>.
+        </div>
+      </div>
+
+      <!-- Authentication -->
+      <div class="doc-section">
+        <h2>Authentication & Tenant Isolation</h2>
+        <p>
+          Entitle uses <strong>API key-based authentication</strong> in the MVP. Each tenant receives 
+          unique API keys per environment (dev/staging/prod).
         </p>
+
+        <h3>Authentication Header</h3>
+        <pre><code>Authorization: Bearer YOUR_API_KEY</code></pre>
+
+        <h3>Tenant Isolation Guarantees</h3>
+        <ul>
+          <li>One API key per tenant per environment</li>
+          <li>Tenant identity derived from credentials, never from request payload</li>
+          <li>Hard tenant isolation at data layer (row-level security)</li>
+          <li>No cross-tenant visibility possible</li>
+        </ul>
+
+        <div class="highlight-box">
+          <strong>Roadmap:</strong> mTLS-based certificate authentication is planned for post-MVP to 
+          support enterprise deployment models.
+        </div>
       </div>
 
       <!-- SDK Usage -->
-      <div class="doc-section">
-        <h2>SDK Usage (Node.js)</h2>
+      <div class="doc-section" id="sdk">
+        <h2>SDK Usage (Node.js/TypeScript)</h2>
         <p>
-          The Entitle Node.js SDK provides a simple interface for calling the Decision API from your application.
+          The Entitle Node.js SDK provides a safe <strong>Anti-Corruption Layer</strong> between your 
+          application and Entitle. It is thin by design—policy logic stays in Entitle, not the SDK.
         </p>
+
+        <h3>SDK v1 Scope</h3>
+        <ul>
+          <li>Typed TypeScript interface</li>
+          <li>Call <code>/evaluate</code> endpoint</li>
+          <li>In-memory TTL caching</li>
+          <li>Timeout & retry handling</li>
+          <li>Shadow mode support</li>
+        </ul>
 
         <h3>Installation</h3>
         <pre><code>npm install @entitle/node-sdk</code></pre>
@@ -89,133 +162,329 @@ import Layout from '../../layouts/Layout.astro';
         <h3>Basic Usage</h3>
         <pre><code>{`import { EntitleClient } from '@entitle/node-sdk';
 
-const client = new EntitleClient({
+const entitle = new EntitleClient({
   apiKey: process.env.ENTITLE_API_KEY,
 });
 
-// Check if tenant can access a capability
-const decision = await client.evaluate({
-  principal: 'tenant_abc123',
-  capability: 'feature_advanced_analytics',
+// Check capability access
+const allowed = await entitle.can("export-data", { 
+  userId: "user-123",
+  orgId: "org-456" 
 });
 
-if (decision.allowed) {
-  // Grant access to the feature
-  console.log('Access granted');
+if (allowed) {
+  exportData();
 } else {
-  // Deny access
-  console.log('Access denied');
+  throw new ForbiddenError("Export not available on your plan");
 }`}</code></pre>
 
-        <h3>Express.js Middleware Example</h3>
+        <h3>Express.js Middleware Pattern</h3>
         <pre><code>{`import { EntitleClient } from '@entitle/node-sdk';
 
-const client = new EntitleClient({
+const entitle = new EntitleClient({
   apiKey: process.env.ENTITLE_API_KEY,
 });
 
-// Middleware to check capability access
-const requireCapability = (capability) => {
+// Reusable middleware
+const requireCapability = (capability: string) => {
   return async (req, res, next) => {
-    const tenantId = req.user.tenantId;
+    const { userId, orgId } = req.user;
     
-    const decision = await client.evaluate({
-      principal: tenantId,
-      capability: capability,
-    });
-
-    if (decision.allowed) {
-      next();
-    } else {
-      res.status(403).json({ 
-        error: 'Access denied',
-        reason: decision.reason 
-      });
+    try {
+      const allowed = await entitle.can(capability, { userId, orgId });
+      
+      if (allowed) {
+        next();
+      } else {
+        res.status(403).json({ 
+          error: "Access denied",
+          message: \`Capability '\${capability}' not available\`
+        });
+      }
+    } catch (error) {
+      // Handle Entitle API errors
+      console.error("Entitle evaluation error:", error);
+      res.status(500).json({ error: "Policy evaluation failed" });
     }
   };
 };
 
 // Use in routes
-app.get('/api/analytics', 
-  requireCapability('feature_advanced_analytics'),
-  (req, res) => {
-    // Handler code
+app.get('/api/export', 
+  authenticate,
+  requireCapability('export-data'),
+  async (req, res) => {
+    // Your export logic
   }
 );`}</code></pre>
+
+        <h3>Caching Strategy</h3>
+        <p>
+          The SDK includes short-lived in-memory caching (TTL-based) to reduce latency and API load. 
+          Cache keys are scoped to (principal, capability, context) tuples.
+        </p>
+        <pre><code>{`const entitle = new EntitleClient({
+  apiKey: process.env.ENTITLE_API_KEY,
+  cacheTTL: 60, // Cache decisions for 60 seconds
+});`}</code></pre>
+
+        <h3>Error Handling</h3>
+        <pre><code>{`try {
+  const allowed = await entitle.can("premium-feature", context);
+  if (allowed) {
+    // Proceed
+  } else {
+    // Handle denial
+  }
+} catch (error) {
+  if (error.code === 'TIMEOUT') {
+    // Entitle API timeout - decide on fail-open vs fail-closed
+  } else if (error.code === 'UNAUTHORIZED') {
+    // Invalid API key
+  } else {
+    // Other errors
+  }
+}`}</code></pre>
       </div>
 
       <!-- Shadow Mode -->
-      <div class="doc-section">
-        <h2 id="shadow-mode">Shadow Mode</h2>
+      <div class="doc-section" id="shadow-mode">
+        <h2>Shadow Mode (Zero-Risk Testing)</h2>
         <div class="feature-highlight">
           <div class="feature-highlight-content">
             <p>
-              Shadow mode allows you to test Entitle's decisions without enforcing them in production. 
-              This is critical for validating policy logic before switching to enforcement mode.
+              <strong>Shadow mode</strong> is critical for safe adoption. It allows you to test Entitle's 
+              decisions in production without enforcement risk.
             </p>
             <div class="highlight-box">
-              <strong>Zero Risk Testing:</strong> Deploy Entitle integration with shadow mode enabled. 
-              Compare decisions against your existing logic. Switch to enforcement only when confident.
+              <strong>How it works:</strong> SDK calls Entitle, logs the decision, but always returns 
+              your specified default (allow or deny). You compare Entitle's decisions against your 
+              existing logic before switching to enforcement.
             </div>
           </div>
           <div class="feature-highlight-image">
             <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=400&fit=crop&q=80" alt="Testing and validation" />
           </div>
         </div>
-          Shadow mode allows you to test Entitle's policy decisions without affecting your production 
-          traffic. In shadow mode, the SDK calls Entitle but always returns a default decision while 
-          logging what the real decision would have been.
-        </p>
 
         <h3>Enable Shadow Mode</h3>
-        <pre><code>{`const client = new EntitleClient({
+        <pre><code>{`const entitle = new EntitleClient({
   apiKey: process.env.ENTITLE_API_KEY,
   shadowMode: true,
-  shadowDefault: 'allow', // or 'deny'
+  shadowDefault: 'allow', // or 'deny' - what to return while testing
 });
 
-const decision = await client.evaluate({
-  principal: 'tenant_abc123',
-  capability: 'feature_advanced_analytics',
+// Your existing logic
+const yourDecision = checkLocalPolicy(userId, capability);
+
+// Entitle's decision (not enforced)
+const entitleDecision = await entitle.can(capability, { userId, orgId });
+
+// Log comparison for analysis
+logger.info('Decision comparison', {
+  yours: yourDecision,
+  entitle: entitleDecision,
+  match: yourDecision === entitleDecision
 });
 
-// In shadow mode:
-// - decision.allowed will always match shadowDefault
-// - decision.shadowActual will contain what the real decision would be
-// - All evaluations are logged for analysis
+// Enforce your existing logic (not Entitle's)
+if (yourDecision) {
+  grantAccess();
+}`}</code></pre>
 
-console.log('Enforced:', decision.allowed);
-console.log('Would have been:', decision.shadowActual);`}</code></pre>
+        <h3>Progressive Adoption Path</h3>
+        <div class="adoption-stages">
+          <div class="stage">
+            <div class="stage-number">1</div>
+            <div class="stage-content">
+              <h4>Shadow Mode</h4>
+              <p>Integrate SDK, call Entitle in parallel, don't enforce decisions yet. Build trust.</p>
+            </div>
+          </div>
+          <div class="stage">
+            <div class="stage-number">2</div>
+            <div class="stage-content">
+              <h4>Partial Enforcement</h4>
+              <p>Enforce Entitle decisions for non-critical capabilities. Keep local overrides.</p>
+            </div>
+          </div>
+          <div class="stage">
+            <div class="stage-number">3</div>
+            <div class="stage-content">
+              <h4>Full Enforcement</h4>
+              <p>Entitle becomes authoritative PDP. All decisions routed through Entitle.</p>
+            </div>
+          </div>
+        </div>
 
         <div class="highlight-box">
-          <strong>Best Practice:</strong> Start with shadow mode in production to verify policy 
-          behavior before fully migrating to Entitle.
+          <strong>Best Practice:</strong> Run shadow mode for 1-2 weeks in production. Analyze decision 
+          logs. Fix policy mismatches. Only then switch to enforcement.
         </div>
       </div>
 
-      <!-- Enforcement Reminder -->
-      <div class="doc-section enforcement-reminder">
-        <h2>Enforcement Responsibility</h2>
+      <!-- Policy Management -->
+      <div class="doc-section">
+        <h2>Policy Management (Alpha)</h2>
         <p>
-          <strong>Critical:</strong> Entitle evaluates policy decisions. Your application must 
-          enforce those decisions.
+          In v1.0, policies are managed via an <strong>internal admin API</strong>. Web console UI 
+          is planned for v1.1+.
         </p>
+
+        <h3>Policy Model (MVP)</h3>
+        <pre><code>{`{
+  "capability": "export-data",
+  "allowed_plans": ["pro", "enterprise"]
+}`}</code></pre>
+
+        <h3>Policy Operations</h3>
+        <pre><code>{`# Create policy
+POST /v1/policies
+{
+  "capability": "export-data",
+  "allowed_plans": ["pro", "enterprise"]
+}
+
+# List policies
+GET /v1/policies
+
+# Update policy
+PUT /v1/policies/{id}
+
+# Deactivate policy
+DELETE /v1/policies/{id}`}</code></pre>
+
+        <h3>Policy Versioning</h3>
+        <p>
+          All policy changes create immutable versions. Decisions include the <code>policy_version</code> 
+          used for audit trails and rollback capability.
+        </p>
+
+        <div class="note">
+          <strong>MVP Limitation:</strong> v1.0 supports simple allow-list policies only. No rule DSL, 
+          scripting, or custom logic. Complex policies (trials, usage limits, rollouts) deferred to v1.1+.
+        </div>
+      </div>
+
+      <!-- Enforcement Responsibility -->
+      <div class="doc-section enforcement-reminder">
+        <h2>Enforcement Responsibility (Critical)</h2>
+        <p>
+          <strong>Entitle evaluates decisions. Your application enforces them.</strong> This separation 
+          is fundamental to the architecture.
+        </p>
+
+        <h3>What Entitle Does</h3>
         <ul>
-          <li>Entitle returns allow/deny — your code must respect that decision</li>
-          <li>Never bypass Entitle's decision in production code</li>
-          <li>Implement proper error handling if the API is unreachable</li>
-          <li>Consider caching strategies for high-traffic scenarios</li>
+          <li>Evaluates policy based on principal, capability, and context</li>
+          <li>Returns deterministic allow/deny decision</li>
+          <li>Provides audit trail and decision reasoning</li>
         </ul>
+
+        <h3>What Your Application Does</h3>
+        <ul>
+          <li>Calls Entitle at decision boundaries</li>
+          <li>Enforces the decision locally (grants or denies access)</li>
+          <li>Handles errors if Entitle is unreachable</li>
+          <li>Implements fail-open or fail-closed strategy</li>
+        </ul>
+
+        <div class="enforcement-warning">
+          <h4>⚠️ Never Bypass Decisions</h4>
+          <p>
+            Do not implement logic that overrides Entitle's decisions based on business rules. 
+            If policy logic is wrong, fix the policy—don't bypass the PDP.
+          </p>
+        </div>
+      </div>
+
+      <!-- Failure Modes -->
+      <div class="doc-section">
+        <h2>Failure Modes & Error Handling</h2>
+        <p>
+          Design your integration to handle scenarios where Entitle is temporarily unreachable.
+        </p>
+
+        <h3>Fail-Closed (Deny by Default)</h3>
+        <pre><code>{`try {
+  const allowed = await entitle.can(capability, context);
+  return allowed;
+} catch (error) {
+  logger.error('Entitle unavailable, denying access', error);
+  return false; // Fail-closed
+}`}</code></pre>
+
+        <h3>Fail-Open (Allow by Default)</h3>
+        <pre><code>{`try {
+  const allowed = await entitle.can(capability, context);
+  return allowed;
+} catch (error) {
+  logger.error('Entitle unavailable, allowing access', error);
+  return true; // Fail-open (use with caution)
+}`}</code></pre>
+
+        <h3>Recommended Strategy</h3>
+        <ul>
+          <li><strong>Critical capabilities:</strong> Fail-closed</li>
+          <li><strong>Non-critical capabilities:</strong> Fail-open with monitoring</li>
+          <li><strong>Always log failures</strong> and alert on elevated error rates</li>
+          <li><strong>Use SDK caching</strong> to reduce impact of transient failures</li>
+        </ul>
+      </div>
+
+      <!-- MVP Scope & Roadmap -->
+      <div class="doc-section">
+        <h2>MVP Scope (v1.0) & Roadmap</h2>
+        
+        <h3>Included in MVP</h3>
+        <ul>
+          <li>Decision evaluation API (<code>/v1/evaluate</code>)</li>
+          <li>Simple policy management (allow-list model)</li>
+          <li>Node.js SDK with caching and shadow mode</li>
+          <li>API key authentication</li>
+          <li>Structured decision logging</li>
+          <li>Hard tenant isolation</li>
+        </ul>
+
+        <h3>Deferred to v1.1+</h3>
+        <ul>
+          <li>Entitlement snapshots (offline tolerance)</li>
+          <li>Audit query APIs</li>
+          <li>Python, Java, Go SDKs</li>
+          <li>mTLS certificate authentication</li>
+          <li>Admin web console</li>
+          <li>Usage limits (advisory)</li>
+          <li>Trial & grace period handling</li>
+          <li>Rollout percentages & kill switches</li>
+        </ul>
+
+        <div class="note">
+          <strong>Alpha Note:</strong> v1.0 exists to prove trust and architectural fit. 
+          Feature completeness comes later. Boring, predictable, and trustworthy infrastructure 
+          takes priority over feature breadth.
+        </div>
       </div>
 
       <!-- Next Steps -->
       <div class="doc-section">
         <h2>Next Steps</h2>
-        <ul class="next-steps">
-          <li><a href="/alpha">Request alpha access</a> to start building with Entitle</li>
-          <li><a href="/security">Review security practices</a> and data handling</li>
-          <li>Join our developer community (coming soon)</li>
-        </ul>
+        <div class="next-steps-grid">
+          <div class="next-step-card">
+            <h3>Request Alpha Access</h3>
+            <p>Join B2B SaaS teams testing Entitle in production-like conditions.</p>
+            <a href="/alpha" class="btn-link">Request Access →</a>
+          </div>
+          <div class="next-step-card">
+            <h3>Review Security</h3>
+            <p>Understand our data handling, tenant isolation, and compliance posture.</p>
+            <a href="/security" class="btn-link">Security Docs →</a>
+          </div>
+          <div class="next-step-card">
+            <h3>Explore the Platform</h3>
+            <p>Deep dive into capabilities, architecture, and design principles.</p>
+            <a href="/product" class="btn-link">View Product →</a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -224,6 +493,7 @@ console.log('Would have been:', decision.shadowActual);`}</code></pre>
 <style>
   .docs-hero {
     padding: 4rem 0 3rem;
+    background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
     border-bottom: 1px solid #e5e7eb;
   }
 
@@ -239,6 +509,176 @@ console.log('Would have been:', decision.shadowActual);`}</code></pre>
     color: #6b7280;
     max-width: 700px;
     line-height: 1.7;
+  }
+
+  .docs-quick-links {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin-top: 1.5rem;
+  }
+
+  .quick-link {
+    padding: 0.625rem 1rem;
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 6px;
+    text-decoration: none;
+    color: #374151;
+    font-weight: 500;
+    font-size: 0.9375rem;
+    transition: all 0.2s ease;
+  }
+
+  .quick-link:hover {
+    border-color: #2563eb;
+    color: #2563eb;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  }
+
+  .core-question {
+    background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+    border-left: 4px solid #2563eb;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    border-radius: 6px;
+  }
+
+  .core-question p {
+    font-size: 1.125rem;
+    font-weight: 500;
+    color: #1e40af;
+    margin: 0;
+    font-style: italic;
+  }
+
+  .philosophy-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+  }
+
+  .philosophy-item {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 1.5rem;
+  }
+
+  .philosophy-item h3 {
+    font-size: 1.125rem;
+    margin-bottom: 0.5rem;
+    color: #111827;
+  }
+
+  .philosophy-item p {
+    margin: 0;
+    font-size: 0.9375rem;
+    color: #6b7280;
+  }
+
+  .adoption-stages {
+    margin-top: 1.5rem;
+  }
+
+  .stage {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+    padding: 1.5rem;
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+  }
+
+  .stage-number {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.25rem;
+  }
+
+  .stage-content h4 {
+    font-size: 1.125rem;
+    margin-bottom: 0.5rem;
+    color: #111827;
+  }
+
+  .stage-content p {
+    margin: 0;
+    color: #6b7280;
+  }
+
+  .enforcement-warning {
+    background: #fef2f2;
+    border: 2px solid #fca5a5;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-top: 1.5rem;
+  }
+
+  .enforcement-warning h4 {
+    color: #991b1b;
+    margin-bottom: 0.75rem;
+    font-size: 1.0625rem;
+  }
+
+  .enforcement-warning p {
+    color: #7f1d1d;
+    margin: 0;
+  }
+
+  .next-steps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+
+  .next-step-card {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 2rem;
+    transition: all 0.3s ease;
+  }
+
+  .next-step-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    border-color: #2563eb;
+  }
+
+  .next-step-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+    color: #111827;
+  }
+
+  .next-step-card p {
+    color: #6b7280;
+    margin-bottom: 1.25rem;
+  }
+
+  .btn-link {
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: color 0.15s;
+  }
+
+  .btn-link:hover {
+    color: #1d4ed8;
   }
 
   .docs-content {

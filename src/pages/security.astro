@@ -12,13 +12,14 @@ import Layout from '../layouts/Layout.astro';
         <div class="security-hero-content">
           <h1>Security & Compliance</h1>
           <p class="lead">
-            Entitle is architected as a policy processor, not a data processor. 
-            We handle decisions, not your customer data.
+            Entitle is architected as a <strong>policy processor, not a data processor</strong>. 
+            We evaluate decisions—we never touch your customer data or business logic.
           </p>
           <div class="security-badges">
-            <span class="security-badge">🔒 SOC 2 Type II (In Progress)</span>
-            <span class="security-badge">🛡️ GDPR Compliant</span>
-            <span class="security-badge">🌐 Multi-Tenant Architecture</span>
+            <span class="security-badge">🔒 SOC 2 Type II (Roadmap)</span>
+            <span class="security-badge">🛡️ GDPR Compliant by Design</span>
+            <span class="security-badge">🌐 Hard Multi-Tenancy</span>
+            <span class="security-badge">🔐 Tenant Isolation Guaranteed</span>
           </div>
         </div>
         <div class="security-hero-image">
@@ -32,199 +33,360 @@ import Layout from '../layouts/Layout.astro';
     <div class="container">
       <!-- Core Principle -->
       <div class="security-section principle">
-        <h2>Core Principle</h2>
+        <h2>Core Security Principle</h2>
         <p class="principle-statement">
-          Entitle is a policy decision platform. We evaluate whether a principal can access 
-          a capability. We do not store, process, or transmit your customer business data.
+          Entitle is a <strong>Policy Decision Platform (PDP)</strong>. We answer one question: 
+          <em>"Is this capability allowed for this principal right now?"</em> We evaluate policy—we 
+          <strong>never store, process, or access</strong> your customer data, business logic, or PII.
         </p>
-      </div>
-
-      <!-- GDPR-Friendly Design -->
-      <div class="security-section">
-        <h2>GDPR-Friendly Design</h2>
-        <p>
-          Entitle's architecture is designed with privacy by default. We process policy decisions, 
-          not personal data.
-        </p>
-        <div class="details-grid">
-          <div class="detail-item">
-            <h3>No Personal Data Required</h3>
-            <p>
-              Entitle works with pseudonymous identifiers like <code>tenant_abc123</code> or 
-              <code>org_xyz</code>. We never require names, emails, or other PII.
-            </p>
-          </div>
-          <div class="detail-item">
-            <h3>Minimal Data Collection</h3>
-            <p>
-              We only collect what's necessary to evaluate policies: principal identifiers, 
-              capability identifiers, and optional context metadata.
-            </p>
-          </div>
-          <div class="detail-item">
-            <h3>Data Minimization</h3>
-            <p>
-              Policy evaluation logs are retained for operational purposes only and purged 
-              on a rolling basis.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Data Handling -->
-      <div class="security-section">
-        <h2>Data Handling</h2>
-        <div class="data-handling-grid">
-          <div class="data-card">
-            <img src="https://images.unsplash.com/photo-1633265486064-086b219458ec?w=600&h=400&fit=crop&q=80" alt="Data security" />
-            <h3>What We Store</h3>
-            <ul>
-              <li>Policy definitions and rules</li>
-              <li>Pseudonymous principal identifiers (tenant_abc123)</li>
-              <li>Capability identifiers (feature_analytics)</li>
-              <li>Decision audit logs (who accessed what, when)</li>
-              <li>Optional context metadata (environment, region)</li>
-            </ul>
-          </div>
-          <div class="data-card">
-            <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600&h=400&fit=crop&q=80" alt="Data protection" />
-            <h3>What We Never Store</h3>
-            <ul>
-              <li>User emails, names, or personal information</li>
-              <li>Your application's business data</li>
-              <li>Payment or billing information</li>
-              <li>Customer records or user profiles</li>
-              <li>Feature implementation details</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-        <p>
-          Understanding what Entitle does and doesn't store is critical for compliance and trust.
-        </p>
-        
-        <div class="data-table">
-          <div class="data-row header-row">
-            <div class="data-cell">Data Type</div>
-            <div class="data-cell">Stored?</div>
-            <div class="data-cell">Purpose</div>
-          </div>
-          <div class="data-row">
-            <div class="data-cell">Principal IDs</div>
-            <div class="data-cell"><span class="badge yes">Yes</span></div>
-            <div class="data-cell">Policy evaluation</div>
-          </div>
-          <div class="data-row">
-            <div class="data-cell">Capability IDs</div>
-            <div class="data-cell"><span class="badge yes">Yes</span></div>
-            <div class="data-cell">Policy evaluation</div>
-          </div>
-          <div class="data-row">
-            <div class="data-cell">Policy Rules</div>
-            <div class="data-cell"><span class="badge yes">Yes</span></div>
-            <div class="data-cell">Decision logic</div>
-          </div>
-          <div class="data-row">
-            <div class="data-cell">Decision Logs</div>
-            <div class="data-cell"><span class="badge yes">Yes</span></div>
-            <div class="data-cell">Audit & debugging</div>
-          </div>
-          <div class="data-row">
-            <div class="data-cell">Customer Business Data</div>
-            <div class="data-cell"><span class="badge no">No</span></div>
-            <div class="data-cell">Not applicable</div>
-          </div>
-          <div class="data-row">
-            <div class="data-cell">User PII</div>
-            <div class="data-cell"><span class="badge no">No</span></div>
-            <div class="data-cell">Not required</div>
-          </div>
-          <div class="data-row">
-            <div class="data-cell">Payment Information</div>
-            <div class="data-cell"><span class="badge no">No</span></div>
-            <div class="data-cell">Not applicable</div>
-          </div>
+        <div class="architecture-note">
+          <p>
+            <strong>Architectural Consequence:</strong> Because we're not in your data path, we 
+            can't leak what we don't have. No customer records. No payment data. No business analytics. 
+            Only pseudonymous identifiers and policy metadata.
+          </p>
         </div>
       </div>
 
       <!-- Tenant Isolation -->
       <div class="security-section">
-        <h2>Tenant Isolation</h2>
+        <h2>Hard Multi-Tenancy & Isolation</h2>
         <p>
-          Every Entitle customer operates in complete logical isolation.
+          Entitle enforces <strong>hard tenant isolation</strong> at every layer. Cross-tenant 
+          access is architecturally impossible, not just policy-prevented.
         </p>
-        <ul>
-          <li>Each tenant has a unique namespace for policies and principals</li>
-          <li>API keys are scoped to individual tenants</li>
-          <li>No cross-tenant data access is possible</li>
-          <li>Policy evaluation is isolated per tenant at runtime</li>
-        </ul>
+
+        <h3>Isolation Guarantees</h3>
+        <div class="details-grid">
+          <div class="detail-item">
+            <h3>🔐 Authentication-Based Tenancy</h3>
+            <p>
+              Tenant identity derived from authentication credentials (API key), never from 
+              request payload. One API key = one tenant per environment. No cross-tenant keys.
+            </p>
+          </div>
+          <div class="detail-item">
+            <h3>🛡️ Row-Level Security</h3>
+            <p>
+              Database enforces tenant filters at the row level using RLS policies. 
+              Even with SQL injection, cross-tenant reads are impossible.
+            </p>
+          </div>
+          <div class="detail-item">
+            <h3>🚫 No Shared Resources</h3>
+            <p>
+              No shared API keys, no tenant-switching logic, no "super-admin" bypass. 
+              Tenant context is immutable for the request lifecycle.
+            </p>
+          </div>
+        </div>
+
+        <div class="highlight-box">
+          <strong>Design Note:</strong> We assume breach. Even if an attacker compromises one tenant's 
+          API key, they cannot access other tenants' policies or decision logs. Isolation is enforced 
+          at the data layer, not just the application layer.
+        </div>
+      </div>
+
+      <!-- GDPR-Friendly Design -->
+      <div class="security-section">
+        <h2>GDPR-Compliant by Design</h2>
+        <p>
+          Entitle's architecture makes GDPR compliance straightforward because we <strong>don't 
+          process personal data</strong>. No PII means no GDPR data subject requests for Entitle.
+        </p>
+
+        <h3>Privacy Principles</h3>
+        <div class="details-grid">
+          <div class="detail-item">
+            <h3>🔑 Pseudonymous by Default</h3>
+            <p>
+              We work with identifiers like <code>tenant-abc</code>, <code>user-123</code>, or 
+              <code>org-xyz</code>. We never require or store names, emails, or other PII. 
+              Your application manages the mapping from identifiers to humans—not us.
+            </p>
+          </div>
+          <div class="detail-item">
+            <h3>📉 Data Minimization</h3>
+            <p>
+              We only store what's required for policy evaluation: principal identifiers, 
+              capability names, and decision outcomes. Nothing more.
+            </p>
+          </div>
+          <div class="detail-item">
+            <h3>⏳ Retention Limits</h3>
+            <p>
+              Decision logs retained for 90 days for audit and debugging purposes, then purged. 
+              Policies retained until explicitly deleted by tenant.
+            </p>
+          </div>
+          <div class="detail-item">
+            <h3>🚫 No Third-Party Sharing</h3>
+            <p>
+              Entitle does not share tenant data with third parties. No analytics providers, 
+              no advertising networks, no data brokers. Your policies stay yours.
+            </p>
+          </div>
+        </div>
+
+        <div class="highlight-box">
+          <strong>GDPR Data Subject Requests:</strong> Because Entitle doesn't store PII, most 
+          data subject requests (access, deletion, rectification) don't apply to us. The pseudonymous 
+          identifiers we store cannot be linked back to individuals without your application's mapping.
+        </div>
+      </div>
+
+      <!-- Data Handling -->
+      <div class="security-section">
+        <h2>Data Handling: What We Store vs. Never Store</h2>
+        <p>
+          Clear boundaries around what Entitle processes. This is not just policy—it's architectural.
+        </p>
+        <div class="data-handling-grid">
+          <div class="data-card stores">
+            <img src="https://images.unsplash.com/photo-1633265486064-086b219458ec?w=600&h=400&fit=crop&q=80" alt="Data security" />
+            <h3>✅ What We Store</h3>
+            <ul>
+              <li><strong>Policy definitions:</strong> Rules about which plans allow which capabilities</li>
+              <li><strong>Pseudonymous identifiers:</strong> <code>tenant-abc</code>, <code>user-123</code> (no PII)</li>
+              <li><strong>Capability identifiers:</strong> <code>export-data</code>, <code>premium-analytics</code></li>
+              <li><strong>Decision logs:</strong> Principal X requested capability Y, result was allow/deny</li>
+              <li><strong>Optional context:</strong> Environment (prod/staging), region (if provided)</li>
+              <li><strong>Policy versions:</strong> Immutable policy history for rollback and audit</li>
+            </ul>
+          </div>
+          <div class="data-card never-stores">
+            <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600&h=400&fit=crop&q=80" alt="Data protection" />
+            <h3>❌ What We Never Store</h3>
+            <ul>
+              <li><strong>Personal information:</strong> User emails, names, addresses, phone numbers</li>
+              <li><strong>Business data:</strong> Customer records, transaction details, analytics data</li>
+              <li><strong>Payment data:</strong> Credit cards, billing information, invoice details</li>
+              <li><strong>User behavior:</strong> Click streams, usage patterns, session tracking</li>
+              <li><strong>Feature content:</strong> What features actually do or how they're implemented</li>
+              <li><strong>Domain logic:</strong> Your business rules or proprietary workflows</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="data-principle">
+          <h4>Principle: Policy Processor, Not Data Processor</h4>
+          <p>
+            Entitle evaluates <em>"Can principal X access capability Y?"</em>—we never need to know 
+            who X is as a human, what Y does, or what data might be involved. This architectural 
+            boundary is fundamental to our security model.
+          </p>
+        </div>
+      </div>
+      <!-- Authentication & Authorization -->
+      <div class="security-section">
+        <h2>Authentication & Authorization Model</h2>
+        
+        <h3>MVP: API Key-Based Authentication</h3>
+        <p>
+          In the MVP, authentication uses <strong>per-tenant, per-environment API keys</strong>. 
+          Each tenant receives unique keys for dev, staging, and production environments.
+        </p>
+
+        <div class="auth-details">
+          <h4>Key Characteristics</h4>
+          <ul>
+            <li><strong>One key per tenant per environment</strong> - No shared credentials</li>
+            <li><strong>Tenant identity derived from key</strong> - Never from request payload</li>
+            <li><strong>Rotation supported</strong> - Generate new keys without downtime</li>
+            <li><strong>Scoped access</strong> - Keys grant access only to tenant's own policies</li>
+          </ul>
+        </div>
+
+        <h3>Roadmap: mTLS Certificate Authentication</h3>
+        <p>
+          Post-MVP, we'll support <strong>mutual TLS (mTLS)</strong> for enterprise deployments. 
+          This enables certificate-based authentication with automatic rotation and hardware security 
+          module (HSM) support.
+        </p>
+
+        <div class="highlight-box">
+          <strong>Security Note:</strong> API keys should be treated as secrets. Store in environment 
+          variables or secret managers, never commit to source control. Rotate keys if compromised.
+        </div>
       </div>
 
       <!-- Infrastructure Security -->
       <div class="security-section">
-        <h2>Infrastructure Security</h2>
+        <h2>Infrastructure & Network Security</h2>
         <div class="details-grid">
           <div class="detail-item">
-            <h3>TLS Everywhere</h3>
+            <h3>🔒 TLS 1.3 Everywhere</h3>
             <p>
-              All API traffic is encrypted in transit using TLS 1.3. Entitle does not accept 
-              unencrypted connections.
+              All API traffic encrypted in transit using TLS 1.3. No unencrypted connections 
+              accepted. Certificate validation enforced.
             </p>
           </div>
           <div class="detail-item">
-            <h3>API Key Authentication</h3>
+            <h3>⚡ API Endpoint Security</h3>
             <p>
-              Access to the Decision API requires a valid API key. Keys can be rotated 
-              without downtime.
+              Rate limiting, DDoS protection, and request validation at the edge. 
+              Malformed requests rejected before reaching application logic.
             </p>
           </div>
           <div class="detail-item">
-            <h3>Secure Defaults</h3>
+            <h3>🛡️ Fail-Closed by Default</h3>
             <p>
-              If a policy cannot be evaluated due to an error, Entitle returns a deny decision 
-              by default.
+              If policy cannot be evaluated due to errors, Entitle returns <code>deny</code> 
+              by default. No fail-open modes that could grant unintended access.
+            </p>
+          </div>
+          <div class="detail-item">
+            <h3>🔐 Database Security</h3>
+            <p>
+              Encrypted at rest (AES-256). Row-level security enforces tenant isolation. 
+              Automated backups with point-in-time recovery.
             </p>
           </div>
         </div>
+      </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Decision Logging & Audit -->
+      <div class="security-section">
+        <h2>Decision Logging & Audit Trail</h2>
+        <p>
+          All policy evaluation requests are logged with structured metadata for audit and debugging purposes.
+        </p>
+
+        <h3>What's Logged</h3>
+        <ul>
+          <li>Timestamp (UTC)</li>
+          <li>Tenant identifier</li>
+          <li>Principal identifier (pseudonymous)</li>
+          <li>Capability requested</li>
+          <li>Decision outcome (allow/deny)</li>
+          <li>Policy version applied</li>
+          <li>Optional context metadata</li>
+        </ul>
+
+        <h3>Audit Query API (Roadmap)</h3>
+        <p>
+          v1.1+ will provide query APIs allowing tenants to retrieve their own decision logs for 
+          compliance reporting, security analysis, and debugging. Queries scoped to tenant—no 
+          cross-tenant visibility.
+        </p>
+
+        <div class="highlight-box">
+          <strong>Retention Policy:</strong> Decision logs retained for 90 days, then automatically 
+          purged. Extended retention available on request for compliance needs.
+        </div>
+      </div>
+
+      <!-- Operational Security -->
+      <div class="security-section">
+        <h2>Operational Security Practices</h2>
+        
+        <h3>Development & Deployment</h3>
+        <ul>
+          <li>All code changes reviewed before merge</li>
+          <li>Automated testing including security regression tests</li>
+          <li>Immutable infrastructure (no manual server changes)</li>
+          <li>Secrets managed via dedicated secret manager (never in code)</li>
+        </ul>
+
+        <h3>Monitoring & Incident Response</h3>
+        <ul>
+          <li>24/7 uptime monitoring and alerting</li>
+          <li>Automated anomaly detection for suspicious patterns</li>
+          <li>Incident response plan with defined escalation paths</li>
+          <li>Post-incident reviews for continuous improvement</li>
+        </ul>
+
+        <h3>Access Controls</h3>
+        <ul>
+          <li>Principle of least privilege for all team access</li>
+          <li>Multi-factor authentication required for all production access</li>
+          <li>Audit logging of all administrative actions</li>
+          <li>Regular access reviews and permission audits</li>
+        </ul>
       </div>
 
       <!-- What Entitle is NOT -->
       <div class="security-section not-section">
-        <h2>What Entitle is NOT</h2>
+        <h2>What Entitle is NOT (Setting Boundaries)</h2>
         <p>
-          To maintain clarity and set proper expectations:
+          Clarity on what we <strong>deliberately don't do</strong> is as important as what we do:
         </p>
-        <ul>
-          <li><strong>Not a data processor:</strong> We do not handle your customer data</li>
-          <li><strong>Not a billing system:</strong> We do not process payments or store pricing</li>
-          <li><strong>Not an enforcement engine:</strong> Your application enforces decisions</li>
-          <li><strong>Not a user authentication system:</strong> We assume authentication is handled upstream</li>
-        </ul>
+        <div class="not-grid">
+          <div class="not-item">
+            <h3>❌ Not a Data Processor</h3>
+            <p>We never handle, store, or access your customer business data, analytics, or transactions.</p>
+          </div>
+          <div class="not-item">
+            <h3>❌ Not a Billing System</h3>
+            <p>We don't process payments, store credit cards, or manage invoices. Stripe/Chargebee remain yours.</p>
+          </div>
+          <div class="not-item">
+            <h3>❌ Not an Enforcement Engine</h3>
+            <p>We evaluate decisions—your application enforces them. We never execute workflows or control features.</p>
+          </div>
+          <div class="not-item">
+            <h3>❌ Not User Authentication</h3>
+            <p>We assume authentication happens upstream (Auth0, Cognito, etc.). We evaluate post-auth authorization.</p>
+          </div>
+          <div class="not-item">
+            <h3>❌ Not Usage Metering</h3>
+            <p>We don't count API calls, track usage limits, or monitor consumption (deferred to v1.1+).</p>
+          </div>
+          <div class="not-item">
+            <h3>❌ Not Feature Flag Infrastructure</h3>
+            <p>We're policy-driven, not feature-flag driven. Use LaunchDarkly/Split for feature flags.</p>
+          </div>
+        </div>
       </div>
 
       <!-- Compliance Status -->
       <div class="security-section">
-        <h2>Compliance Status</h2>
+        <h2>Compliance Status & Roadmap</h2>
         <p>
-          Entitle is currently in alpha. We are actively working toward enterprise compliance certifications.
+          Entitle is in <strong>controlled alpha</strong>. We're architecting for compliance from day one, 
+          but formal certifications come post-general availability.
         </p>
+
+        <h3>Current Status</h3>
+        <ul>
+          <li>GDPR-compliant by design (no PII processing)</li>
+          <li>Security best practices implemented (encryption, isolation, audit logs)</li>
+          <li>Incident response plan documented</li>
+          <li>Data retention policies defined</li>
+        </ul>
+
+        <h3>Certification Roadmap (Post-MVP)</h3>
+        <ul>
+          <li><strong>SOC 2 Type II:</strong> Targeted for 6-9 months post-GA</li>
+          <li><strong>ISO 27001:</strong> Under evaluation based on customer demand</li>
+          <li><strong>HIPAA BAA:</strong> Not planned for v1.0 (healthcare use cases deferred)</li>
+        </ul>
+
         <div class="compliance-note">
           <p>
-            <strong>Note:</strong> We do not yet hold SOC 2, ISO 27001, or other formal certifications. 
-            If you have specific compliance requirements for alpha participation, please discuss them 
-            during your access request.
+            <strong>Alpha Transparency:</strong> We don't yet hold formal certifications. If your 
+            organization requires SOC 2 or ISO 27001 attestation for vendor onboarding, please 
+            discuss your timeline during alpha access request. We can prioritize certification 
+            based on customer need.
           </p>
         </div>
       </div>
 
-      <!-- Questions -->
+      <!-- Questions CTA -->
       <div class="security-section cta-section">
-        <h2>Questions About Security?</h2>
+        <h2>Security Questions?</h2>
         <p>
-          We're happy to discuss our security architecture and data handling practices in detail.
+          We're committed to transparency. If you have specific security, compliance, or architecture 
+          questions, we'll answer them directly during your alpha evaluation.
         </p>
-        <a href="/alpha" class="btn-primary">Request Alpha Access</a>
+        <div class="cta-buttons">
+          <a href="/alpha" class="btn-primary">Request Alpha Access</a>
+          <a href="/docs" class="btn-secondary">View Documentation</a>
+        </div>
       </div>
     </div>
   </section>
@@ -233,6 +395,7 @@ import Layout from '../layouts/Layout.astro';
 <style>
   .security-hero {
     padding: 4rem 0 3rem;
+    background: linear-gradient(180deg, #fef2f2 0%, #ffffff 100%);
     border-bottom: 1px solid #e5e7eb;
   }
 
@@ -248,6 +411,128 @@ import Layout from '../layouts/Layout.astro';
     color: #6b7280;
     max-width: 700px;
     line-height: 1.7;
+  }
+
+  .security-badges {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin-top: 1.5rem;
+  }
+
+  .security-badge {
+    padding: 0.625rem 1rem;
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 6px;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: #374151;
+  }
+
+  .architecture-note {
+    background: #eff6ff;
+    border-left: 4px solid #2563eb;
+    padding: 1.5rem;
+    margin-top: 1.5rem;
+    border-radius: 6px;
+  }
+
+  .architecture-note p {
+    margin: 0;
+    color: #1e40af;
+    font-weight: 500;
+  }
+
+  .data-principle {
+    background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+    border-left: 4px solid #16a34a;
+    padding: 1.5rem;
+    margin-top: 2rem;
+    border-radius: 6px;
+  }
+
+  .data-principle h4 {
+    color: #15803d;
+    margin-bottom: 0.75rem;
+    font-size: 1.0625rem;
+  }
+
+  .data-principle p {
+    color: #166534;
+    margin: 0;
+  }
+
+  .auth-details {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-top: 1rem;
+  }
+
+  .auth-details h4 {
+    font-size: 1rem;
+    margin-bottom: 0.75rem;
+    color: #111827;
+  }
+
+  .not-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+  }
+
+  .not-item {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 1.5rem;
+  }
+
+  .not-item h3 {
+    font-size: 1.0625rem;
+    margin-bottom: 0.75rem;
+    color: #991b1b;
+  }
+
+  .not-item p {
+    margin: 0;
+    font-size: 0.9375rem;
+    color: #6b7280;
+  }
+
+  .data-card.stores {
+    border-left: 4px solid #16a34a;
+  }
+
+  .data-card.never-stores {
+    border-left: 4px solid #dc2626;
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+
+  .btn-secondary {
+    display: inline-block;
+    padding: 0.875rem 1.75rem;
+    background: white;
+    color: #2563eb;
+    border: 2px solid #2563eb;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+  }
+
+  .btn-secondary:hover {
+    background: #eff6ff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
   }
 
   .security-content {
