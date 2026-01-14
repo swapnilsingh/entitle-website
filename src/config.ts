@@ -1,2 +1,3 @@
 // Base URL configuration for GitHub Pages
-export const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const baseUrl = import.meta.env.BASE_URL || '/';
+export const base = baseUrl.endsWith('/') ? baseUrl.slice(0, -1) : baseUrl;
