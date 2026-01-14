@@ -163,6 +163,70 @@ const { title, description = 'Entitle - Externalize Entitlement Logic for Your S
     background: var(--color-bg-secondary);
   }
 
+  .what-not-section {
+    background: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%);
+    position: relative;
+  }
+
+  .what-not-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--color-border), transparent);
+  }
+
+  .what-not-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+
+  .what-not-item {
+    background: white;
+    border-radius: var(--radius-xl);
+    border: 1px solid rgba(139, 92, 246, 0.1);
+    box-shadow: 0 4px 6px -1px rgba(139, 92, 246, 0.1);
+    transition: all 0.3s ease;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .what-not-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--color-accent) 0%, var(--color-primary) 100%);
+  }
+
+  .what-not-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 25px -5px rgba(139, 92, 246, 0.15);
+    border-color: rgba(139, 92, 246, 0.2);
+  }
+
+  .what-not-content {
+    padding: 2rem;
+  }
+
+  .what-not-content h3 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    color: var(--color-text);
+  }
+
+  .what-not-content p {
+    margin-bottom: 0;
+    line-height: 1.7;
+    color: var(--color-text-secondary);
+  }
+
   .final-cta {
     background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
     color: white;
@@ -440,6 +504,13 @@ const { title, description = 'Entitle - Externalize Entitlement Logic for Your S
   .not-item p {
     margin-bottom: 0;
     font-size: 0.9375rem;
+  }
+
+  .what-not-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
   }
 
   .use-cases {

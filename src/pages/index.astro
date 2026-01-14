@@ -187,35 +187,39 @@ import Layout from '../layouts/Layout.astro';
   </section>
 
   <!-- What We Are NOT Section -->
-  <section class="not-section">
+  <section class="what-not-section">
     <div class="container">
       <div class="section-header">
         <span class="badge">Clear Boundaries</span>
         <h2>What Entitle is NOT</h2>
         <p class="section-intro">
-          Setting clear boundaries is critical for trust and architectural clarity.
+          We believe in clear architectural boundaries. Here's what we deliberately don't do.
         </p>
       </div>
-      <div class="not-grid">
-        <div class="not-item">
-          <span class="not-icon">❌</span>
-          <h4>Not a Feature Flag Tool</h4>
-          <p>We evaluate commercial access policy, not product behavior experiments.</p>
+      <div class="what-not-grid">
+        <div class="what-not-item">
+          <div class="what-not-content">
+            <h3>🚩 Feature Flags</h3>
+            <p>We're not about A/B testing or gradual rollouts. We focus on <strong>commercial access policy</strong>—who can access what based on their subscription, not experimental feature toggles.</p>
+          </div>
         </div>
-        <div class="not-item">
-          <span class="not-icon">❌</span>
-          <h4>Not a Billing System</h4>
-          <p>We integrate with billing providers as input—we don't process payments.</p>
+        <div class="what-not-item">
+          <div class="what-not-content">
+            <h3>💳 Billing System</h3>
+            <p>We don't process payments or manage subscriptions. We <strong>integrate with</strong> your billing provider (Stripe, Chargebee) to make policy decisions based on plan data.</p>
+          </div>
         </div>
-        <div class="not-item">
-          <span class="not-icon">❌</span>
-          <h4>Not an Enforcement Engine</h4>
-          <p>We return decisions. Your systems enforce them.</p>
+        <div class="what-not-item">
+          <div class="what-not-content">
+            <h3>🔐 Enforcement Engine</h3>
+            <p>We return allow/deny decisions. Your application <strong>remains in control</strong> of what happens next. We evaluate policy—you enforce it.</p>
+          </div>
         </div>
-        <div class="not-item">
-          <span class="not-icon">❌</span>
-          <h4>Not a Workflow Orchestrator</h4>
-          <p>We don't execute business logic or control feature behavior.</p>
+        <div class="what-not-item">
+          <div class="what-not-content">
+            <h3>⚙️ Workflow Orchestration</h3>
+            <p>We don't execute business logic or coordinate multi-step processes. We're a <strong>pure policy evaluator</strong>, not a workflow engine.</p>
+          </div>
         </div>
       </div>
     </div>
