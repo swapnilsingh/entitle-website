@@ -34,6 +34,9 @@ import Layout from '../layouts/Layout.astro';
           business logic. This makes pricing changes risky, slows delivery, and violates 
           architectural boundaries.
         </p>
+        <p style="margin-top: 1rem;">
+          <a href="/product" class="product-link">Explore the Full Platform →</a>
+        </p>
       </div>
       <div class="features">
         <div class="feature">
@@ -326,6 +329,7 @@ import Layout from '../layouts/Layout.astro';
       </p>
       <div class="cta-buttons">
         <a href="/alpha" class="btn btn-primary">Request Alpha Access</a>
+        <a href="/product" class="btn btn-secondary-light">View Product Details</a>
         <a href="/docs" class="btn btn-secondary-light">Read Documentation</a>
       </div>
     </div>
@@ -628,6 +632,18 @@ import Layout from '../layouts/Layout.astro';
   }
 
   .security-link a:hover {
+    color: #1d4ed8;
+  }
+
+  .product-link {
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.0625rem;
+    transition: color 0.15s;
+  }
+
+  .product-link:hover {
     color: #1d4ed8;
   }
 
