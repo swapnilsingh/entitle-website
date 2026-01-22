@@ -50,7 +50,8 @@ Entitle follows Domain-Driven Design (DDD) principles:
 - **Language:** TypeScript
 - **Styling:** Native CSS with scoped component styles
 - **Build Tool:** Vite (via Astro)
-- **Deployment:** Static hosting (Vercel, Netlify, GitHub Pages)
+- **Deployment:** Static hosting (Vercel, Netlify, GitHub Pages) or Docker containers
+- **Content:** Astro Content Collections for structured documentation
 
 ## Development
 
@@ -75,6 +76,20 @@ Preview production build:
 ```bash
 npm run preview
 ```
+
+## Docker Deployment
+
+Build and run the website in a Docker container:
+
+```bash
+# Build the Docker image
+docker build -t entitle-website .
+
+# Run the container
+docker run -d -p 4321:4321 entitle-website
+```
+
+The site will be available at `http://localhost:4321`.
 
 ## Target Audience
 
