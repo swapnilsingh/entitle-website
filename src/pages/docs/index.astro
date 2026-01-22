@@ -10,28 +10,27 @@ import { base } from '../../config';
   <section class="docs-hero">
     <div class="container">
       <div class="hero-content-centered">
-        <span class="badge">Developer Documentation</span>
-        <h1>Get Started with Entitle</h1>
+        <span class="badge">Entitle Documentation</span>
+        <h1>Platform & Architecture Docs</h1>
         <p class="lead">
-          Complete guide to integrating Entitle's Policy Decision Platform into your B2B SaaS application. 
-          Built for engineering teams who value architectural discipline.
+          Explore Entitle's architecture, domain-driven design, technical implementation, and vision. All documentation is now organized by domain, technical, sales, and future roadmap.
         </p>
         <div class="docs-quick-nav">
-          <a href="#quickstart" class="nav-card">
-            <div class="nav-card-icon">→</div>
-            <span>Quickstart</span>
+          <a href="/docs/ddd" class="nav-card">
+            <div class="nav-card-icon">🏗️</div>
+            <span>Domain-Driven Design</span>
           </a>
-          <a href="#decision-api" class="nav-card">
-            <div class="nav-card-icon">⚡</div>
-            <span>Decision API</span>
+          <a href="/docs/technical" class="nav-card">
+            <div class="nav-card-icon">💻</div>
+            <span>Technical Docs</span>
           </a>
-          <a href="#sdk" class="nav-card">
-            <div class="nav-card-icon">📚</div>
-            <span>SDK Usage</span>
+          <a href="/docs/sales" class="nav-card">
+            <div class="nav-card-icon">📈</div>
+            <span>Sales & Vision</span>
           </a>
-          <a href="#shadow-mode" class="nav-card">
-            <div class="nav-card-icon">🔄</div>
-            <span>Shadow Mode</span>
+          <a href="/docs/future" class="nav-card">
+            <div class="nav-card-icon">🔮</div>
+            <span>Future & Roadmap</span>
           </a>
         </div>
       </div>
@@ -40,43 +39,28 @@ import { base } from '../../config';
 
   <section class="docs-content">
     <div class="container">
-      <!-- Quickstart Overview -->
-      <div class="doc-section" id="quickstart">
-        <h2>Quickstart Overview</h2>
-        <p>
-          Entitle is a <strong>Policy Decision Platform (PDP)</strong> that externalizes commercial access 
-          policy from your application code. We answer one fundamental question:
-        </p>
-        <div class="core-question">
-          <p><em>Is a given capability allowed for a given principal right now, and under what limits?</em></p>
-        </div>
-        <p>
-          Your application calls Entitle at well-defined decision boundaries, receives an allow/deny decision, 
-          and <strong>enforces that decision locally</strong>. We evaluate policy—you control behavior.
-        </p>
-        <div class="highlight-box">
-          <strong>Critical Principle:</strong> Entitle evaluates decisions only. Your application remains 
-          responsible for enforcement. We never execute workflows or control feature behavior.
-        </div>
+      <!-- DDD Section -->
+      <div class="doc-section" id="ddd">
+        <h2>Domain-Driven Design (DDD)</h2>
+        <p>Explore the core architecture and bounded contexts of Entitle. <a href="/docs/ddd">View DDD Docs →</a></p>
       </div>
 
-      <!-- Integration Philosophy -->
-      <div class="doc-section">
-        <h2>Integration Philosophy</h2>
-        <div class="philosophy-grid">
-          <div class="philosophy-item">
-            <h3>Anti-Corruption Layer</h3>
-            <p>Integration via typed SDKs forms a clean boundary between Entitle and your core domain.</p>
-          </div>
-          <div class="philosophy-item">
-            <h3>Progressive Adoption</h3>
-            <p>Start with shadow mode, move to partial enforcement, then full adoption. No big-bang migration.</p>
-          </div>
-          <div class="philosophy-item">
-            <h3>Deliberately Replaceable</h3>
-            <p>Clear boundaries mean you can migrate away if needed. No lock-in by design.</p>
-          </div>
-        </div>
+      <!-- Technical Section -->
+      <div class="doc-section" id="technical">
+        <h2>Technical Documentation</h2>
+        <p>Technical implementation, API architecture, CI/CD, and technology stack. <a href="/docs/technical">View Technical Docs →</a></p>
+      </div>
+
+      <!-- Sales Section -->
+      <div class="doc-section" id="sales">
+        <h2>Sales & Vision</h2>
+        <p>Vision, executive summaries, and feature enablement strategy. <a href="/docs/sales">View Sales & Vision Docs →</a></p>
+      </div>
+
+      <!-- Future Section -->
+      <div class="doc-section" id="future">
+        <h2>Future & Roadmap</h2>
+        <p>Ideas, future contexts, and usage tracking. <a href="/docs/future">View Future & Roadmap Docs →</a></p>
       </div>
 
       <!-- Decision API -->

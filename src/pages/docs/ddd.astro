@@ -1,0 +1,17 @@
+
+---
+import Layout from '../../layouts/Layout.astro';
+import { getEntryBySlug } from 'astro:content';
+
+let Content;
+const entry = await getEntryBySlug('ddd', 'context_map');
+if (entry) {
+  ({ Content } = await entry.render());
+}
+---
+
+<Layout title="Domain-Driven Design (DDD)" description="Explore Entitle's DDD architecture and bounded contexts.">
+  <section class="docs-content">
+    {Content ? <Content /> : <p>Documentation not found.</p>}
+  </section>
+</Layout>

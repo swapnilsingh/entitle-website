@@ -1,0 +1,17 @@
+
+---
+import Layout from '../../layouts/Layout.astro';
+import { getEntryBySlug } from 'astro:content';
+
+let Content;
+const entry = await getEntryBySlug('future', 'ideas');
+if (entry) {
+  ({ Content } = await entry.render());
+}
+---
+
+<Layout title="Future & Roadmap" description="Ideas, future contexts, and usage tracking.">
+  <section class="docs-content">
+    {Content ? <Content /> : <p>Documentation not found.</p>}
+  </section>
+</Layout>

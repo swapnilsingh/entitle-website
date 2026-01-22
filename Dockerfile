@@ -17,5 +17,5 @@ RUN npm run build
 # Expose the port Astro will run on
 EXPOSE 4321
 
-# Start the Vite preview server for correct allowedHosts support
-CMD ["npx", "vite", "preview", "--host", "0.0.0.0", "--port", "4321"]
+# Serve the static files using a proper static file server
+CMD ["npx", "serve", "dist", "-p", "4321"]
